@@ -8,6 +8,7 @@ public class EcommerceSceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EcommerceSceApplication.class, args);
+		System.out.println("holas");
 	}
 
 }
