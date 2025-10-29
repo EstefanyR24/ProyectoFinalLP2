@@ -1,5 +1,17 @@
 package com.ecommerce.sce.service;
 
+import java.util.List;
+import java.util.Optional;
+
+import com.ecommerce.sce.model.Proveedor;
+
 public interface ProveedorService {
 
+	public Proveedor save(Proveedor proveedor);
+	public Optional<Proveedor> get(Integer id);
+	public void update (Proveedor proveedor);
+	public List <Proveedor> findAll();
+	
+	
+	
 }
