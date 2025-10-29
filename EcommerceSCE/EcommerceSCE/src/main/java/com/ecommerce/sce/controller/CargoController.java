@@ -50,9 +50,19 @@ public class CargoController {
 	public String edit(@PathVariable Integer id,Model model){
 		Cargo cargo = new Cargo();
 		Optional<Cargo> optionalCargo= cargoService.get(id);
+		cargo= optionalCargo.get();
+		model.addAttribute("Cargo buscado:{}", cargo);
 		
-		return "";
+		return "cargo/edit";
 	}
+	
+	@PostMapping("/update")
+	public String update(Cargo cargo) {
+		cargoService.update(cargo);
+		return "redirect:/cargo";
+	}
+	
+	
 	
 	
 }
