@@ -11,5 +11,6 @@ public interface CotizacionService {
 	public Cotizacion save(Cotizacion cotizacion);
 	public Optional<Cotizacion> get(Integer id);
 	public void update(Cotizacion cotizacion);
+	public void delete(Integer id);
 	public List<Cotizacion> findAll();
 }

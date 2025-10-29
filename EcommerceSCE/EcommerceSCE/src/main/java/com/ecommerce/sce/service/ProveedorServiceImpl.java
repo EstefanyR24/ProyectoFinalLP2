@@ -1,5 +1,50 @@
 package com.ecommerce.sce.service;
 
-public class ProveedorServiceImpl {
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ecommerce.sce.model.Proveedor;
+import com.ecommerce.sce.repository.ProveedorRepository;
+
+@Service
+public class ProveedorServiceImpl implements ProveedorService {
+
+	
+	@Autowired
+	private ProveedorRepository proveedorRepository;
+	
+	@Override
+	public Proveedor save(Proveedor proveedor) {
+		// TODO Auto-generated method stub
+		return  proveedorRepository.save(proveedor);
+	}
+
+	@Override
+	public Optional<Proveedor> get(Integer id) {
+		// TODO Auto-generated method stub
+		return proveedorRepository.findById(id);
+	}
+
+	@Override
+	public void update(Proveedor proveedor) {
+		// TODO Auto-generated method stub
+		proveedorRepository.save(proveedor);
+	}
+
+	
+	@Override
+	
+	public void delete(Integer id) {
+		proveedorRepository.deleteById(id);
+	}
+	
+	@Override
+	public List<Proveedor> findAll() {
+		// TODO Auto-generated method stub
+		return proveedorRepository.findAll();
+	}
 
 }

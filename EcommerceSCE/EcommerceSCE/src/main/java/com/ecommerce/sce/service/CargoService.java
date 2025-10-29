@@ -10,6 +10,7 @@ public interface CargoService {
 	public Cargo save(Cargo cargo);
 	public Optional<Cargo> get(Integer id);
 	public void update(Cargo cargo);
+	public void delete(Integer id);
 	public List<Cargo> findAll();
 	
 	

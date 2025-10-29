@@ -7,9 +7,10 @@ import com.ecommerce.sce.model.Productos;
 
 public interface ProductoService {
 
-	public Productos save(Productos usuario);
+	public Productos save(Productos producto);
 	public Optional<Productos> get(Integer id);
 	public void update(Productos producto);
+	public void delete(Integer id);
 	public List<Productos> findAll();
 	
 	
