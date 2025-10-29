@@ -1,0 +1,58 @@
+package com.ecommerce.sce.controller;
+
+import java.util.Optional;
+
+import org.slf4j.*;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ecommerce.sce.model.Cargo;
+import com.ecommerce.sce.service.CargoService;
+
+@Controller
+@RequestMapping("/cargo")
+
+public class CargoController {
+
+	private final Logger LOGGER = LoggerFactory.getLogger(CargoController.class);
+	
+	@Autowired
+	private CargoService cargoService;
+	
+	@GetMapping("")
+	private String show(Model model) {
+		model.addAttribute("cargos", cargoService.findAll());
+		return "cargo/show";
+	}
+	
+	@GetMapping("/create")
+	public String create() {
+		return "cargo/create";
+	}
+	
+	@PostMapping("/save")
+	public String save(Cargo cargo) {
+		LOGGER.info("este es el objeto:", cargo);
+		cargoService.save(cargo);
+		return "redirect:/cargo";
+		
+		
+	}
+	
+	
+	@GetMapping("/edit/{id}")
+	public String edit(@PathVariable Integer id,Model model){
+		Cargo cargo = new Cargo();
+		Optional<Cargo> optionalCargo= cargoService.get(id);
+		
+		return "";
+	}
+	
+	
+}
