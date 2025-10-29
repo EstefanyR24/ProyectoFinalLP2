@@ -12,7 +12,7 @@ public interface ClienteService {
 	public Optional<Cliente> get(Integer id);
 	public void update(Cliente cliente);
 	public void delete(Integer id);
-	public List<Cliente> findAll();
+public List<Cliente> findAll();
 	
 	
 	
