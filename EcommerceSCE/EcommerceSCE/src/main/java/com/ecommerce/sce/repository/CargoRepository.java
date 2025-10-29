@@ -1,5 +1,9 @@
 package com.ecommerce.sce.repository;
 
-public interface CargoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ecommerce.sce.model.Cargo;
+
+public interface CargoRepository extends JpaRepository<Cargo, Integer>{
 
 }

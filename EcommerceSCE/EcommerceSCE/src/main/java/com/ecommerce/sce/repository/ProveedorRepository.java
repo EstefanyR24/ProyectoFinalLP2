@@ -1,5 +1,9 @@
 package com.ecommerce.sce.repository;
 
-public interface ProveedorRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ecommerce.sce.model.Proveedor;
+
+public interface ProveedorRepository extends JpaRepository<Proveedor, Integer> {
 
 }
