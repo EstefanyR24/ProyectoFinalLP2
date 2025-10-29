@@ -11,7 +11,8 @@ public interface ClienteService {
 	public Cliente save(Cliente cliente);
 	public Optional<Cliente> get(Integer id);
 	public void update(Cliente cliente);
-	public List<Cliente> findAll();
+	public void delete(Integer id);
+public List<Cliente> findAll();
 	
 	
 	

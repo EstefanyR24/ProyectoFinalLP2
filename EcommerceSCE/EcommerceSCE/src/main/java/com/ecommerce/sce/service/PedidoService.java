@@ -10,7 +10,8 @@ public interface PedidoService {
 	public Pedido save(Pedido pedido);
 	public Optional<Pedido> get(Integer id);
 	public void update(Pedido pedido);
-	public List<Pedido> findAll();
+	public void delete(Integer id);
+public List<Pedido> findAll();
 	
 	
 	
