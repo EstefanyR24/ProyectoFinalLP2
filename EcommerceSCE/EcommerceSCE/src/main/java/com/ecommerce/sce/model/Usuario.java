@@ -19,9 +19,9 @@ public class Usuario {
 	private String telUsuario;
 	
 	@OneToOne
-	private String cargo;
+	private Cargo cargo;
 
-	public Usuario(Integer idUsuario, String nombreUsuario, String telUsuario, String cargo) {
+	public Usuario(Integer idUsuario, String nombreUsuario, String telUsuario, Cargo cargo) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nombreUsuario = nombreUsuario;
@@ -57,11 +57,11 @@ public class Usuario {
 		this.telUsuario = telUsuario;
 	}
 
-	public String getCargo() {
+	public Cargo getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
+	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
 

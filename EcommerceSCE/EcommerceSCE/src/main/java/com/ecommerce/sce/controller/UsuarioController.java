@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ecommerce.sce.service.UsuarioService;
+import com.ecommerce.sce.model.Cargo;
 import com.ecommerce.sce.model.Usuario;
 import com.ecommerce.sce.controller.UsuarioController;
 
@@ -40,17 +41,17 @@ public class UsuarioController {
 	@PostMapping("/save")
 	public String save(Usuario usuario) {
 		LOGGER.info("Este es el objeto usuario {}",usuario);
-		Usuario u = new Usuario(1,"","","");
-		usuario.setUsuario(u);
+		Cargo c = new Cargo(1,"");
+		usuario.setCargo(c);
 		usuarioService.save(usuario);
 		return "redirect:/usuario";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Integer id, Model model) {
-		Usuario producto= new Usuario();
+		Usuario usuario= new Usuario();
 		Optional<Usuario> optionalUsuario=usuarioService.get(id);
-		producto= optionalUsuario.get();
+		usuario= optionalUsuario.get();
 		LOGGER.info("Usuario buscado: {}",usuario);
 		model.addAttribute("usuario", usuario);
 		
