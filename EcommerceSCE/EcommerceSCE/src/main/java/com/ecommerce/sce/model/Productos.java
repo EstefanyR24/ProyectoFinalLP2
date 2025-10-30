@@ -19,15 +19,15 @@ public class Productos {
 	private int stock;
 	
 	@ManyToOne
-	private Proveedor provedor;
+	private Proveedor proveedor;
 
-	public Productos(Integer idProducto, String nomProducto, double precio, int stock, Proveedor provedor) {
+	public Productos(Integer idProducto, String nomProducto, double precio, int stock, Proveedor proveedor) {
 		super();
 		this.idProducto = idProducto;
 		this.nomProducto = nomProducto;
 		this.precio = precio;
 		this.stock = stock;
-		this.provedor = provedor;
+		this.proveedor = proveedor;
 	}
 
 	public Productos() {
@@ -66,18 +66,18 @@ public class Productos {
 		this.stock = stock;
 	}
 
-	public Proveedor getProvedor() {
-		return provedor;
+	public Proveedor getProveedor() {
+		return proveedor;
 	}
 
-	public void setProvedor(Proveedor provedor) {
-		this.provedor = provedor;
+	public void setProveedor(Proveedor proveedor) {
+		this.proveedor = proveedor;
 	}
 
 	@Override
 	public String toString() {
 		return "Productos [idProducto=" + idProducto + ", nomProducto=" + nomProducto + ", precio=" + precio
-				+ ", stock=" + stock + ", provedor=" + provedor + "]";
+				+ ", stock=" + stock + ", provedor=" + proveedor + "]";
 	}
 	
 	
