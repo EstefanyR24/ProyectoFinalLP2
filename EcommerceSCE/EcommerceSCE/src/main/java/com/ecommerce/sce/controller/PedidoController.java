@@ -19,57 +19,52 @@ import com.ecommerce.sce.service.PedidoService;
 @RequestMapping("/pedido")
 public class PedidoController {
 
-	private final Logger LOGGER = LoggerFactory.getLogger(CotizacionController.class);
+	 private final Logger LOGGER = LoggerFactory.getLogger(PedidoController.class);
 
-	@Autowired
-	private PedidoService pedidoService;
-	
-	@GetMapping("")
-	public String show(Model model) {
-		model.addAttribute("pedido", pedidoService);
-		return "pedido/show";
-		
-	}
-	
-	@GetMapping("/create")
-	public String create() {
-		return "cotizacion/create";
-	}
-	
-	@PostMapping("/save")
-	public String save(Pedido pedido) {
-	LOGGER.info("esta es un pedido : {}", pedidoService);
-	pedidoService.save(pedido);
-	return "redirect:/pedido";
-	
-	}
-	
-	@GetMapping("/edit/{id}")
-	public String edit(@PathVariable Integer id, Model model) {
-		Pedido pedido = new Pedido();
-		Optional<Pedido> optionalPedido=pedidoService.get(id);
-		pedido=optionalPedido.get();
-		LOGGER.info("Pedido buscado: {}",pedido);
-		return "pedido/edit";
-		
-	}
-	
-	
-	@PostMapping("/update")
-	public String update(Pedido pedido) {
-		pedidoService.update(pedido);
-		return "redirect:/pedido";
-	}
-	
-	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id) {
-		pedidoService.delete(id);
-		return "redirect:/pedido";
-	}
-	
-	
-	
-	
-	
+	    @Autowired
+	    private PedidoService pedidoService;
+	    
+	    @GetMapping("")
+	    public String show(Model model) {
+	        model.addAttribute("pedidos", pedidoService.findAll());
+	        return "pedido/show";
+	    }
+	    
+	    @GetMapping("/create")
+	    public String create(Model model) {
+	        model.addAttribute("pedido", new Pedido());
+	        return "pedido/create";
+	    }
+	    
+	    @PostMapping("/save")
+	    public String save(Pedido pedido) {
+	        LOGGER.info("Pedido a guardar: {}", pedido);
+	        pedidoService.save(pedido);
+	        return "redirect:/pedido";
+	    }
+	    
+	    @GetMapping("/edit/{id}")
+	    public String edit(@PathVariable Integer id, Model model) {
+	        Optional<Pedido> optionalPedido = pedidoService.get(id);
+	        if (optionalPedido.isPresent()) {
+	            model.addAttribute("pedido", optionalPedido.get());
+	            return "pedido/edit";
+	        }
+	        return "redirect:/pedido";
+	    }
+	    
+	    @PostMapping("/update")
+	    public String update(Pedido pedido) {
+	        LOGGER.info("Pedido a actualizar: {}", pedido);
+	        pedidoService.update(pedido);
+	        return "redirect:/pedido";
+	    }
+	    
+	    @GetMapping("/delete/{id}")
+	    public String delete(@PathVariable Integer id) {
+	        LOGGER.info("Pedido a eliminar ID: {}", id);
+	        pedidoService.delete(id);
+	        return "redirect:/pedido";
+	    }
 	
 }

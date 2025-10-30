@@ -64,8 +64,11 @@ public class ClienteController {
 		return "redirect:/cliente";
 	}
 	
-	
-	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+	    clienteService.delete(id);
+	    return "redirect:/cliente";
+	}
 	
 	
 	

@@ -62,7 +62,11 @@ public class CargoController {
 		return "redirect:/cargo";
 	}
 	
-	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+		cargoService.delete(id);
+		return "redirect:/cargo";
+	}
 	
 	
 }
