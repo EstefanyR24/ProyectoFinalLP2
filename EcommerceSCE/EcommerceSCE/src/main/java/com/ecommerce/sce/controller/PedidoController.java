@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ecommerce.sce.model.Pedido;
-import com.ecommerce.sce.service.CotizacionService;
 import com.ecommerce.sce.service.PedidoService;
 
 @Controller

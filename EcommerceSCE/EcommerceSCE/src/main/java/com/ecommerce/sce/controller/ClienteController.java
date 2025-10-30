@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ecommerce.sce.model.Cliente;
-import com.ecommerce.sce.service.CargoService;
 import com.ecommerce.sce.service.ClienteService;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 
