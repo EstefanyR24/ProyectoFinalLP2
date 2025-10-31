@@ -4,66 +4,69 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "usuario")
-public class Productos {
+@Table (name = "Producto")
+public class Producto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idProducto;
+	private Integer id_Producto;
 	
-	private String nomProducto;
-	private double precio;
-	private int stock;
+	private String nombre_Producto;
+	private double precio_Producto;
+	private int stock_Producto;
 	
-	@ManyToOne
-	private Proveedor proveedor;
+    @ManyToOne
+    @JoinColumn(name = "id_Proveedor")
+    private Proveedor proveedor;
 
-	public Productos(Integer idProducto, String nomProducto, double precio, int stock, Proveedor proveedor) {
+	public Producto() {
 		super();
-		this.idProducto = idProducto;
-		this.nomProducto = nomProducto;
-		this.precio = precio;
-		this.stock = stock;
+	}
+
+	public Producto(Integer id_Producto, String nombre_Producto, double precio_Producto, int stock_Producto,
+			Proveedor proveedor) {
+		super();
+		this.id_Producto = id_Producto;
+		this.nombre_Producto = nombre_Producto;
+		this.precio_Producto = precio_Producto;
+		this.stock_Producto = stock_Producto;
 		this.proveedor = proveedor;
 	}
 
-	public Productos() {
-		super();
+	public Integer getId_Producto() {
+		return id_Producto;
 	}
 
-	public Integer getIdProducto() {
-		return idProducto;
+	public void setId_Producto(Integer id_Producto) {
+		this.id_Producto = id_Producto;
 	}
 
-	public void setIdProducto(Integer idProducto) {
-		this.idProducto = idProducto;
+	public String getNombre_Producto() {
+		return nombre_Producto;
 	}
 
-	public String getNomProducto() {
-		return nomProducto;
+	public void setNombre_Producto(String nombre_Producto) {
+		this.nombre_Producto = nombre_Producto;
 	}
 
-	public void setNomProducto(String nomProducto) {
-		this.nomProducto = nomProducto;
+	public double getPrecio_Producto() {
+		return precio_Producto;
 	}
 
-	public double getPrecio() {
-		return precio;
+	public void setPrecio_Producto(double precio_Producto) {
+		this.precio_Producto = precio_Producto;
 	}
 
-	public void setPrecio(double precio) {
-		this.precio = precio;
+	public int getStock_Producto() {
+		return stock_Producto;
 	}
 
-	public int getStock() {
-		return stock;
-	}
-
-	public void setStock(int stock) {
-		this.stock = stock;
+	public void setStock_Producto(int stock_Producto) {
+		this.stock_Producto = stock_Producto;
 	}
 
 	public Proveedor getProveedor() {
@@ -76,10 +79,9 @@ public class Productos {
 
 	@Override
 	public String toString() {
-		return "Productos [idProducto=" + idProducto + ", nomProducto=" + nomProducto + ", precio=" + precio
-				+ ", stock=" + stock + ", provedor=" + proveedor + "]";
+		return "Producto [id_Producto=" + id_Producto + ", nombre_Producto=" + nombre_Producto + ", precio_Producto="
+				+ precio_Producto + ", stock_Producto=" + stock_Producto + ", proveedor=" + proveedor + "]";
 	}
-	
 	
 	
 	

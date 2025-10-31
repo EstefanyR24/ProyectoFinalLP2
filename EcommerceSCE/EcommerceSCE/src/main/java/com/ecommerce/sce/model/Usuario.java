@@ -4,57 +4,59 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "usuario")
+@Table (name = "Usuario")
 public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idUsuario;
+	private Integer id_Usuario;
+	private String nombre_Usuario;
+	private String telefono_Usuario;
 	
-	private String nombreUsuario;
-	private String telUsuario;
-	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name = "id_Cargo")
 	private Cargo cargo;
-
-	public Usuario(Integer idUsuario, String nombreUsuario, String telUsuario, Cargo cargo) {
-		super();
-		this.idUsuario = idUsuario;
-		this.nombreUsuario = nombreUsuario;
-		this.telUsuario = telUsuario;
-		this.cargo = cargo;
-	}
 
 	public Usuario() {
 		super();
 	}
 
-	public Integer getIdUsuario() {
-		return idUsuario;
+	public Usuario(Integer id_Usuario, String nombre_Usuario, String telefono_Usuario, Cargo cargo) {
+		super();
+		this.id_Usuario = id_Usuario;
+		this.nombre_Usuario = nombre_Usuario;
+		this.telefono_Usuario = telefono_Usuario;
+		this.cargo = cargo;
 	}
 
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
+	public Integer getId_Usuario() {
+		return id_Usuario;
 	}
 
-	public String getNombreUsuario() {
-		return nombreUsuario;
+	public void setId_Usuario(Integer id_Usuario) {
+		this.id_Usuario = id_Usuario;
 	}
 
-	public void setNombreUsuario(String nombreUsuario) {
-		this.nombreUsuario = nombreUsuario;
+	public String getNombre_Usuario() {
+		return nombre_Usuario;
 	}
 
-	public String getTelUsuario() {
-		return telUsuario;
+	public void setNombre_Usuario(String nombre_Usuario) {
+		this.nombre_Usuario = nombre_Usuario;
 	}
 
-	public void setTelUsuario(String telUsuario) {
-		this.telUsuario = telUsuario;
+	public String getTelefono_Usuario() {
+		return telefono_Usuario;
+	}
+
+	public void setTelefono_Usuario(String telefono_Usuario) {
+		this.telefono_Usuario = telefono_Usuario;
 	}
 
 	public Cargo getCargo() {
@@ -67,10 +69,10 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", telUsuario=" + telUsuario
-				+ ", cargo=" + cargo + "]";
+		return "Usuario [id_Usuario=" + id_Usuario + ", nombre_Usuario=" + nombre_Usuario + ", telefono_Usuario="
+				+ telefono_Usuario + ", cargo=" + cargo + "]";
 	}
-	
+
 	
 	
 	

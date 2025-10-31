@@ -62,9 +62,14 @@ public class ProveedorController {
 			proveedorService.update(proveedor);
 			return "redirect:/proveedor";
 			
-		
 		}
 		
-	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+		proveedorService.delete(id);
+		return "redirect:/pedido";
+	}
+		
+		
 	
 }

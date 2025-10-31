@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ecommerce.sce.service.ProductoService;
 import com.ecommerce.sce.model.Proveedor;
-import com.ecommerce.sce.model.Productos;
+import com.ecommerce.sce.model.Producto;
 import com.ecommerce.sce.controller.ProductoController;
 
 @Controller
@@ -40,7 +40,7 @@ public class ProductoController {
 	
 	
 	@PostMapping("/save")
-	public String save(Productos productos) {
+	public String save(Producto productos) {
 		LOGGER.info("Este es el objeto producto {}",productos);
 		Proveedor p = new Proveedor(1,"", "");
 		productos.setProveedor(p);
@@ -51,8 +51,8 @@ public class ProductoController {
 	
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Integer id, Model model) {
-		Productos producto= new Productos();
-		Optional<Productos> optionalProducto=productoService.get(id);
+		Producto producto= new Producto();
+		Optional<Producto> optionalProducto=productoService.get(id);
 		producto= optionalProducto.get();
 		LOGGER.info("Producto buscado: {}",producto);
 		model.addAttribute("producto", producto);
@@ -63,7 +63,7 @@ public class ProductoController {
 	
 	
 	@PostMapping("/update")
-	public String update(Productos producto) {
+	public String update(Producto producto) {
 		productoService.update(producto);		
 		return "redirect:/producto";
 	}

@@ -2,108 +2,120 @@ package com.ecommerce.sce.model;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "pedido")
+@Table (name = "Pedido")
 public class Pedido {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idPedido;
 	
-	@OneToMany (mappedBy = "usuario")
-	private List<Productos> producto;
-	
-	@OneToOne (mappedBy = "usuario")
-	private Cliente cliente;
-	
-	private String fechaPedido;
-	
-	@OneToOne (mappedBy = "usuario")
-	private Usuario usuario;
-	
-	@OneToOne (mappedBy = "usuario")
-	private Cotizacion cotizacion;
+	 @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    @Column(name = "id_Pedido")
+	    private Integer id_Pedido;
 
-	public Pedido(Integer idPedido, List<Productos> producto, Cliente cliente, String fechaPedido, Usuario usuario,
-			Cotizacion cotizacion) {
-		super();
-		this.idPedido = idPedido;
-		this.producto = producto;
-		this.cliente = cliente;
-		this.fechaPedido = fechaPedido;
-		this.usuario = usuario;
-		this.cotizacion = cotizacion;
-	}
+	    @ManyToMany
+	    @JoinTable(
+	        name = "pedido_producto",
+	        joinColumns = @JoinColumn(name = "id_Pedido"),
+	        inverseJoinColumns = @JoinColumn(name = "id_Producto")
+	    )
+	    private List<Producto> productos;
 
-	public Pedido() {
-		super();
-	}
+	    @ManyToOne
+	    @JoinColumn(name = "id_Cliente")
+	    private Cliente cliente;
 
-	public Integer getIdPedido() {
-		return idPedido;
-	}
+	    @ManyToOne
+	    @JoinColumn(name = "id_Usuario")
+	    private Usuario usuario;
 
-	public void setIdPedido(Integer idPedido) {
-		this.idPedido = idPedido;
-	}
+	    @ManyToOne
+	    @JoinColumn(name = "id_Cotizacion")
+	    private Cotizacion cotizacion;
 
-	public List<Productos> getProducto() {
-		return producto;
-	}
+	    @Column(name = "fecha_Pedido")
+	    private String fecha_Pedido;
 
-	public void setProducto(List<Productos> producto) {
-		this.producto = producto;
-	}
+		public Pedido() {
+			super();
+		}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
+		public Pedido(Integer id_Pedido, List<Producto> productos, Cliente cliente, Usuario usuario,
+				Cotizacion cotizacion, String fecha_Pedido) {
+			super();
+			this.id_Pedido = id_Pedido;
+			this.productos = productos;
+			this.cliente = cliente;
+			this.usuario = usuario;
+			this.cotizacion = cotizacion;
+			this.fecha_Pedido = fecha_Pedido;
+		}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
+		public Integer getId_Pedido() {
+			return id_Pedido;
+		}
 
-	public String getFechaPedido() {
-		return fechaPedido;
-	}
+		public void setId_Pedido(Integer id_Pedido) {
+			this.id_Pedido = id_Pedido;
+		}
 
-	public void setFechaPedido(String fechaPedido) {
-		this.fechaPedido = fechaPedido;
-	}
+		public List<Producto> getProductos() {
+			return productos;
+		}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+		public void setProductos(List<Producto> productos) {
+			this.productos = productos;
+		}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+		public Cliente getCliente() {
+			return cliente;
+		}
 
-	public Cotizacion getCotizacion() {
-		return cotizacion;
-	}
+		public void setCliente(Cliente cliente) {
+			this.cliente = cliente;
+		}
 
-	public void setCotizacion(Cotizacion cotizacion) {
-		this.cotizacion = cotizacion;
-	}
+		public Usuario getUsuario() {
+			return usuario;
+		}
 
-	@Override
-	public String toString() {
-		return "Pedido [idPedido=" + idPedido + ", producto=" + producto + ", cliente=" + cliente + ", fechaPedido="
-				+ fechaPedido + ", usuario=" + usuario + ", cotizacion=" + cotizacion + "]";
-	}
-	
-	
-	
-	
-	
+		public void setUsuario(Usuario usuario) {
+			this.usuario = usuario;
+		}
+
+		public Cotizacion getCotizacion() {
+			return cotizacion;
+		}
+
+		public void setCotizacion(Cotizacion cotizacion) {
+			this.cotizacion = cotizacion;
+		}
+
+		public String getFecha_Pedido() {
+			return fecha_Pedido;
+		}
+
+		public void setFecha_Pedido(String fecha_Pedido) {
+			this.fecha_Pedido = fecha_Pedido;
+		}
+
+		@Override
+		public String toString() {
+			return "Pedido [id_Pedido=" + id_Pedido + ", productos=" + productos + ", cliente=" + cliente + ", usuario="
+					+ usuario + ", cotizacion=" + cotizacion + ", fecha_Pedido=" + fecha_Pedido + "]";
+		}
+
 	
 	
 }

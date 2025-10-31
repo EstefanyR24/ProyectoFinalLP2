@@ -7,46 +7,38 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "cargo")
+@Table(name = "Cargo")
 public class Cargo {
 
 	@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idCargo;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id_Cargo;
+	private String nombre_Cargo;
 	
-	private String nombreCargo;
-
-	public Cargo(int idCargo, String nombreCargo) {
-		super();
-		this.idCargo = idCargo;
-		this.nombreCargo = nombreCargo;
-	}
-
 	public Cargo() {
 		super();
 	}
-
-	public int getIdCargo() {
-		return idCargo;
+	public Cargo(Integer id_Cargo, String nombre_Cargo) {
+		super();
+		this.id_Cargo = id_Cargo;
+		this.nombre_Cargo = nombre_Cargo;
 	}
-
-	public void setIdCargo(int idCargo) {
-		this.idCargo = idCargo;
+	public Integer getId_Cargo() {
+		return id_Cargo;
 	}
-
-	public String getNombreCargo() {
-		return nombreCargo;
+	public void setId_Cargo(Integer id_Cargo) {
+		this.id_Cargo = id_Cargo;
 	}
-
-	public void setNombreCargo(String nombreCargo) {
-		this.nombreCargo = nombreCargo;
+	public String getNombre_Cargo() {
+		return nombre_Cargo;
 	}
-
+	public void setNombre_Cargo(String nombre_Cargo) {
+		this.nombre_Cargo = nombre_Cargo;
+	}
 	@Override
 	public String toString() {
-		return "Cargo [idCargo=" + idCargo + ", nombreCargo=" + nombreCargo + "]";
+		return "Cargo [id_Cargo=" + id_Cargo + ", nombre_Cargo=" + nombre_Cargo + "]";
 	}
-
 	
 	
 	

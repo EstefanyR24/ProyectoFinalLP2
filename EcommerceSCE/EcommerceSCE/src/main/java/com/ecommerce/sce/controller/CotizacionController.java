@@ -52,10 +52,6 @@ public class CotizacionController {
 	
 	}
 	
-	
-	
-	
-	
 		@PostMapping("/update")
 	public String update(Cotizacion cotizacion) {
 			cotizacionService.update(cotizacion);		

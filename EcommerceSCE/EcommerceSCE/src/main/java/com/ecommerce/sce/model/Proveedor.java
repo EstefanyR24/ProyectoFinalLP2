@@ -7,65 +7,55 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "proveedor")
+@Table(name = "Proveedor")
 public class Proveedor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idProducto;
+	private Integer id_Proveedor;
 	
-	private String nomProveedor;
+	private String nombre_Proveedor;
 	
-	private String rucProveedor;
+	private String ruc_Proveedor;
 
 	public Proveedor() {
 		super();
 	}
 
-	public Proveedor(Integer idProducto, String nomProveedor, String rucProveedor) {
+	public Proveedor(Integer id_Proveedor, String nombre_Proveedor, String ruc_Proveedor) {
 		super();
-		this.idProducto = idProducto;
-		this.nomProveedor = nomProveedor;
-		this.rucProveedor = rucProveedor;
+		this.id_Proveedor = id_Proveedor;
+		this.nombre_Proveedor = nombre_Proveedor;
+		this.ruc_Proveedor = ruc_Proveedor;
 	}
 
-	public Integer getIdProducto() {
-		return idProducto;
+	public Integer getId_Proveedor() {
+		return id_Proveedor;
 	}
 
-	public void setIdProducto(Integer idProducto) {
-		this.idProducto = idProducto;
+	public void setId_Proveedor(Integer id_Proveedor) {
+		this.id_Proveedor = id_Proveedor;
 	}
 
-	public String getNomProveedor() {
-		return nomProveedor;
+	public String getNombre_Proveedor() {
+		return nombre_Proveedor;
 	}
 
-	public void setNomProveedor(String nomProveedor) {
-		this.nomProveedor = nomProveedor;
+	public void setNombre_Proveedor(String nombre_Proveedor) {
+		this.nombre_Proveedor = nombre_Proveedor;
 	}
 
-	public String getRucProveedor() {
-		return rucProveedor;
+	public String getRuc_Proveedor() {
+		return ruc_Proveedor;
 	}
 
-	public void setRucProveedor(String rucProveedor) {
-		this.rucProveedor = rucProveedor;
+	public void setRuc_Proveedor(String ruc_Proveedor) {
+		this.ruc_Proveedor = ruc_Proveedor;
 	}
 
 	@Override
 	public String toString() {
-		return "Proveedor [idProducto=" + idProducto + ", nomProveedor=" + nomProveedor + ", rucProveedor="
-				+ rucProveedor + "]";
+		return "Proveedor [id_Proveedor=" + id_Proveedor + ", nombre_Proveedor=" + nombre_Proveedor + ", ruc_Proveedor="
+				+ ruc_Proveedor + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

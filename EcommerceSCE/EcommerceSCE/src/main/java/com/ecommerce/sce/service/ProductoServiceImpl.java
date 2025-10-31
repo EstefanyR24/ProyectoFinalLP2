@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.sce.model.Productos;
+import com.ecommerce.sce.model.Producto;
 import com.ecommerce.sce.repository.ProductoRepository;
 
 @Service
@@ -17,17 +17,17 @@ public class ProductoServiceImpl implements ProductoService {
 	private ProductoRepository productoRepository;
 
 	@Override
-	public Productos save(Productos producto) {
+	public Producto save(Producto producto) {
 		return productoRepository.save(producto);
 	}
 
 	@Override
-	public Optional<Productos> get(Integer id) {
+	public Optional<Producto> get(Integer id) {
 		return productoRepository.findById(id);
 	}
 
 	@Override
-	public void update(Productos producto) {
+	public void update(Producto producto) {
 		productoRepository.save(producto);		
 	}
 
@@ -37,7 +37,7 @@ public class ProductoServiceImpl implements ProductoService {
 	}
 
 	@Override
-	public List<Productos> findAll() {
+	public List<Producto> findAll() {
 		return productoRepository.findAll();
 	}
 

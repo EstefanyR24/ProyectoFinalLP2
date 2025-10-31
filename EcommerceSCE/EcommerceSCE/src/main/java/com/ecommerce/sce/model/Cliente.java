@@ -7,55 +7,85 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "Cliente")
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idCliente;
+	private Integer id_Cliente;
+	private String nombre_Cliente;
+	private String ruc_Cliente;
+	private String telefono_Cliente;
 	
-	private String nomCliente;
-	private String rucCliente;
-	private String telefonoCliente;
 	
 	
-	public Cliente(Integer idCliente, String nomCliente, String rucCliente, String telefonoCliente) {
-		super();
-		this.idCliente = idCliente;
-		this.nomCliente = nomCliente;
-		this.rucCliente = rucCliente;
-		this.telefonoCliente = telefonoCliente;
-	}
 	public Cliente() {
 		super();
 	}
-	public Integer getIdCliente() {
-		return idCliente;
+
+
+
+	public Cliente(Integer id_Cliente, String nombre_Cliente, String ruc_Cliente, String telefono_Cliente) {
+		super();
+		this.id_Cliente = id_Cliente;
+		this.nombre_Cliente = nombre_Cliente;
+		this.ruc_Cliente = ruc_Cliente;
+		this.telefono_Cliente = telefono_Cliente;
 	}
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
+
+
+
+	public Integer getId_Cliente() {
+		return id_Cliente;
 	}
-	public String getNomCliente() {
-		return nomCliente;
+
+
+
+	public void setId_Cliente(Integer id_Cliente) {
+		this.id_Cliente = id_Cliente;
 	}
-	public void setNomCliente(String nomCliente) {
-		this.nomCliente = nomCliente;
+
+
+
+	public String getNombre_Cliente() {
+		return nombre_Cliente;
 	}
-	public String getRucCliente() {
-		return rucCliente;
+
+
+
+	public void setNombre_Cliente(String nombre_Cliente) {
+		this.nombre_Cliente = nombre_Cliente;
 	}
-	public void setRucCliente(String rucCliente) {
-		this.rucCliente = rucCliente;
+
+
+
+	public String getRuc_Cliente() {
+		return ruc_Cliente;
 	}
-	public String getTelefonoCliente() {
-		return telefonoCliente;
+
+
+
+	public void setRuc_Cliente(String ruc_Cliente) {
+		this.ruc_Cliente = ruc_Cliente;
 	}
-	public void setTelefonoCliente(String telefonoCliente) {
-		this.telefonoCliente = telefonoCliente;
+
+
+
+	public String getTelefono_Cliente() {
+		return telefono_Cliente;
 	}
+
+
+
+	public void setTelefono_Cliente(String telefono_Cliente) {
+		this.telefono_Cliente = telefono_Cliente;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Cliente [idCliente=" + idCliente + ", nomCliente=" + nomCliente + ", rucCliente=" + rucCliente
-				+ ", telefonoCliente=" + telefonoCliente + "]";
+		return "Cliente [id_Cliente=" + id_Cliente + ", nombre_Cliente=" + nombre_Cliente + ", ruc_Cliente="
+				+ ruc_Cliente + ", telefono_Cliente=" + telefono_Cliente + "]";
 	}
 	
 	

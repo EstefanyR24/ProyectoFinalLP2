@@ -7,61 +7,46 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "Cotizacion")
 public class Cotizacion {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idCot;
-	
-	private String fechaCot;
-	private String numCotizacion;
-	
-	public Cotizacion(Integer idCot, String fechaCot, String numCotizacion) {
-		super();
-		this.idCot = idCot;
-		this.fechaCot = fechaCot;
-		this.numCotizacion = numCotizacion;
-	}
-	
+	private Integer id_Cotizacion;
+	private String fecha_Cotizacion;
+	private int num_Cotizacion;
 	public Cotizacion() {
 		super();
 	}
-
-	public Integer getIdCot() {
-		return idCot;
+	public Cotizacion(Integer id_Cotizacion, String fecha_Cotizacion, int num_Cotizacion) {
+		super();
+		this.id_Cotizacion = id_Cotizacion;
+		this.fecha_Cotizacion = fecha_Cotizacion;
+		this.num_Cotizacion = num_Cotizacion;
 	}
-
-	public void setIdCot(Integer idCot) {
-		this.idCot = idCot;
+	public Integer getId_Cotizacion() {
+		return id_Cotizacion;
 	}
-
-	public String getFechaCot() {
-		return fechaCot;
+	public void setId_Cotizacion(Integer id_Cotizacion) {
+		this.id_Cotizacion = id_Cotizacion;
 	}
-
-	public void setFechaCot(String fechaCot) {
-		this.fechaCot = fechaCot;
+	public String getFecha_Cotizacion() {
+		return fecha_Cotizacion;
 	}
-
-	public String getNumCotizacion() {
-		return numCotizacion;
+	public void setFecha_Cotizacion(String fecha_Cotizacion) {
+		this.fecha_Cotizacion = fecha_Cotizacion;
 	}
-
-	public void setNumCotizacion(String numCotizacion) {
-		this.numCotizacion = numCotizacion;
+	public int getNum_Cotizacion() {
+		return num_Cotizacion;
 	}
-
+	public void setNum_Cotizacion(int num_Cotizacion) {
+		this.num_Cotizacion = num_Cotizacion;
+	}
 	@Override
 	public String toString() {
-		return "Cotizacion [idCot=" + idCot + ", fechaCot=" + fechaCot + ", numCotizacion=" + numCotizacion + "]";
+		return "Cotizacion [id_Cotizacion=" + id_Cotizacion + ", fecha_Cotizacion=" + fecha_Cotizacion
+				+ ", num_Cotizacion=" + num_Cotizacion + "]";
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	

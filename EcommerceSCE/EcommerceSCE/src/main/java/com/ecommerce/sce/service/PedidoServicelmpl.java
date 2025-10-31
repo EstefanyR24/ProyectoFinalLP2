@@ -19,13 +19,11 @@ public class PedidoServicelmpl implements PedidoService{
 	
 	@Override
 	public Pedido save(Pedido pedido) {
-		// TODO Auto-generated method stub
 		return pedidoRepository.save(pedido);
 	}
 
 	@Override
 	public Optional<Pedido> get(Integer id) {
-		// TODO Auto-generated method stub
 		return pedidoRepository.findById(id);
 	}
 
@@ -42,11 +40,8 @@ public class PedidoServicelmpl implements PedidoService{
 	}
 	
 	
-	
-	
 	@Override
 	public List<Pedido> findAll() {
-		// TODO Auto-generated method stub
 		return pedidoRepository.findAll();
 	}
 
