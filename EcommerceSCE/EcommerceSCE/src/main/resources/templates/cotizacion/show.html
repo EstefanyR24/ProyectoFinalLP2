@@ -10,8 +10,55 @@
 <body>
     <nav class="navegations">
       <div class="navitems" th:include="home/navigations.html::header"></div>
-    
+    </nav>
+<div class="container">
 
+  <h1 class="mt-4 mb-3">
+    Spring EcommerceSCE <small>	Cotizaciones en curso</small>
+  </h1>
+
+  <a class="btn btn-primary" th:href="@{/cotizacion/create}" > Crear Cargo</a>
+  <h2>cotizacion</h2>
+
+
+<table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+         <th scope="col">Numero de Cotizacion</th>
+        <th scope="col">Fecha de Cotizacion</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr th:each="coti:${cotizaciones}">
+        <td th:text="${coti.id_Cotizacion}"></td>
+                <td th:text="${coti.num_Cotizacion}"></td>
+        
+                <td th:text="${coti.fecha_Cotizacion}"></td>
+        
+        <td><a  class="btn btn-warning" th:href="@{/cotizacion/edit/{id} (id=${coti.id_Cotizacion}) }">Editar</a> </td>
+        <td><a  class="btn btn-danger" th:href="@{/cotizacion/delete/{id} (id=${coti.id_Cotizacion}) }">Eliminar</a> </td>
+      </tr>       
+    </tbody>
+
+
+<thead>
+
+
+
+</thead>
+
+
+
+
+
+
+
+</table>
+
+</div>
 
 </body>
 </html>
