@@ -21,55 +21,49 @@ import com.ecommerce.sce.controller.ProveedorController;
 public class ProveedorController {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(ProveedorController.class);
-	
-	@Autowired
-	private ProveedorService proveedorService;
-	
-	@GetMapping("")
-	public String show(Model model) {
-		model.addAttribute("proveedor" , proveedorService.findAll());
-		return "proveedor/show";
-		
-		
-	}
-		@GetMapping("/create")
-		public String create() {
-			return "proveedor/create";
-		}
-		
-		
-		@PostMapping("/save")
-		public String save(Proveedor proveedor) {
-			LOGGER.info("Este es el objeto:", proveedor);
-			proveedorService.save(proveedor);
-			return "redirect:/proveedor";
-		}
-		
-		
-		@GetMapping("/edit/{id}")
-		public String edit(@PathVariable Integer id,Model model){
-			Proveedor proveedor = new Proveedor();
-			Optional<Proveedor> optionalProveedor= proveedorService.get(id);
-			proveedor= optionalProveedor.get();
-			model.addAttribute("Proveedor buscado:{}", proveedor);
-			return "proveedor/edit";
-	
-	}
-		
-		
-		@PostMapping("/update")
-		public String update(Proveedor proveedor) {
-			proveedorService.update(proveedor);
-			return "redirect:/proveedor";
-			
-		}
-		
-	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id) {
-		proveedorService.delete(id);
-		return "redirect:/pedido";
-	}
-		
-		
+
+    @Autowired
+    private ProveedorService proveedorService;
+
+    @GetMapping("")
+    public String show(Model model) {
+        model.addAttribute("proveedores", proveedorService.findAll());
+        return "proveedor/show";
+    }
+
+    @GetMapping("/create")
+    public String create() {
+        return "proveedor/create";
+    }
+
+    @PostMapping("/save")
+    public String save(Proveedor proveedor) {
+        LOGGER.info("Proveedor a guardar: {}", proveedor);
+        proveedorService.save(proveedor);
+        return "redirect:/proveedor";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Integer id, Model model) {
+        Optional<Proveedor> optional = proveedorService.get(id);
+        if (optional.isPresent()) {
+            model.addAttribute("proveedor", optional.get());
+            LOGGER.info("Proveedor buscado: {}", optional.get());
+            return "proveedor/edit";
+        }
+        return "redirect:/proveedor";
+    }
+
+    @PostMapping("/update")
+    public String update(Proveedor proveedor) {
+        proveedorService.update(proveedor);
+        return "redirect:/proveedor";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id) {
+        proveedorService.delete(id);
+        return "redirect:/proveedor";
+    }	
 	
 }
