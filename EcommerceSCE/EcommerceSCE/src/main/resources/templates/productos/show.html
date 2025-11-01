@@ -4,8 +4,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{css/heroic-features.css}" rel="stylesheet">
+        <link th:href="@{css/Index.css}" rel="stylesheet" />
+
 </head>
 <body>
+    <nav class="navegations">
+      <div class="navitems" th:include="home/navigations.html::header"></div>
+    
+    </nav>
 
 <div class="container">
 
@@ -15,35 +21,11 @@
     Spring EcommerceSCE <small>	Producto</small>
   </h1>
 
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-    <li class="breadcrumb-item active">Ver Producto</li>
-  </ol>
+
 
   <a class="btn btn-primary" th:href="@{/productos/create}" > Crear Producto</a>
   <h2>Producto</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Nombre del Producto</th> 
-        <th scope="col">Precio</th>
-        <th scope="col">Stock</th>
-         <th scope="col">Proveedor</th>
-         <th scope="col">Acción</th>
-        <th scope="col">Acción</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="productos:${productos}">
-        <td th:text="${productos.nombre_Producto}"></descripciontd>
-        <td th:text="${productos.precio_Producto}"></descripciontd>
-        <td th:text="${productos.proveedor}"></descripciontd>
-        <td><a  class="btn btn-warning" th:href="@{productos/edit/{id} (id=${productos.id}) }">Editar</a> </td>
-        <td><a  class="btn btn-danger" th:href="@{productos/delete/{id} (id=${productos.id}) }">Eliminar</a> </td>
-      </tr>       
-    </tbody>
-  </table>
+
 
 </div>
 

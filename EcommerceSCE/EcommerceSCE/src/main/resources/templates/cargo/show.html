@@ -4,22 +4,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{css/Index.css}" rel="stylesheet">
+        <link th:href="@{css/Index.css}" rel="stylesheet" />
+
 </head>
 <body>
 
-	<div class="container">
-
-  <nav class="navegations">
-  <img class="logoSlidebar" th:src="@{images/LogoSCE.png}" alt="Logo" />
-    <div class="navitems" th:include="home/navigations.html::header"></div>
+    <nav class="navegations">
+      <div class="navitems" th:include="home/navigations.html::header"></div>
     
-  </nav>
+    </nav>
 
-
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
-    <li class="breadcrumb-item active">Ver Cargo</li>
-  </ol>
+	<div class="container">
+  <h1 class="mt-4 mb-3">
+    Spring EcommerceSCE <small>	Cargos</small>
+  </h1>
 
   <a class="btn btn-primary" th:href="@{/cargos/create}" > Crear Cargo</a>
   <h2>Cargo</h2>
