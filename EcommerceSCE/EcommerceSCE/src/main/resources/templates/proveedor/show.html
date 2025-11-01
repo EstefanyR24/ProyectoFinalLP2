@@ -6,5 +6,43 @@
 </head>
 <body>
 
+	
+<div class="container">
+
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">
+    Spring EcommerceSCE <small>	Proveedor</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">Ver Proveedor</li>
+  </ol>
+
+  <a class="btn btn-primary" th:href="@{/proveedor/create}" > Crear Proveedor</a>
+  <h2>Proveedor</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre del Proveedor</th> 
+        <th scope="col">Ruc</th>
+         <th scope="col">Acción</th>
+        <th scope="col">Acción</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="proveedor:${proveedor}">
+        <td th:text="${proveedor.nombre_Proveedor}"></descripciontd>
+        <td th:text="${proveedor.ruc_Proveedor}"></descripciontd>
+        <td><a  class="btn btn-warning" th:href="@{proveedor/edit/{id} (id=${proveedor.id}) }">Editar</a> </td>
+        <td><a  class="btn btn-danger" th:href="@{proveedor/delete/{id} (id=${proveedor.id}) }">Eliminar</a> </td>
+      </tr>       
+    </tbody>
+  </table>
+
+</div>
+	
 </body>
 </html>

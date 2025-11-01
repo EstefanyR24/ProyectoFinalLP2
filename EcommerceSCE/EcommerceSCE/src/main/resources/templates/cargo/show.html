@@ -6,5 +6,40 @@
 </head>
 <body>
 
+	<div class="container">
+
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">
+    Spring EcommerceSCE <small>	Cargo</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">Ver Cargo</li>
+  </ol>
+
+  <a class="btn btn-primary" th:href="@{/cargos/create}" > Crear Cargo</a>
+  <h2>Cargo</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+         <th scope="col">Acción</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="cargos:${cargo}">
+        <td th:text="${cargos.nombre_Cargo}"></descripciontd>
+        <td><a  class="btn btn-warning" th:href="@{cargos/edit/{id} (id=${cargos.id}) }">Editar</a> </td>
+        <td><a  class="btn btn-danger" th:href="@{cargos/delete/{id} (id=${cargos.id}) }">Eliminar</a> </td>
+      </tr>       
+    </tbody>
+  </table>
+
+</div>
+
+
 </body>
 </html>

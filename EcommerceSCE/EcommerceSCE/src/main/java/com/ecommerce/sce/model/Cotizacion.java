@@ -15,6 +15,8 @@ public class Cotizacion {
 	private Integer id_Cotizacion;
 	private String fecha_Cotizacion;
 	private int num_Cotizacion;
+	
+	
 	public Cotizacion() {
 		super();
 	}

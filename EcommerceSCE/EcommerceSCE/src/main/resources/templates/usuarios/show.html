@@ -6,5 +6,43 @@
 </head>
 <body>
 
+	<div class="container">
+
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">
+    Spring EcommerceSCE <small>	Usuario</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">Ver Usuario</li>
+  </ol>
+
+  <a class="btn btn-primary" th:href="@{/usuario/create}" > Crear Usuario</a>
+  <h2>Usuario</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre del Usuario</th> 
+        <th scope="col">Telefono</th>
+        <th scope="col">Cargo</th>
+         <th scope="col">Acción</th>
+        <th scope="col">Acción</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="usuario:${usuario}">
+        <td th:text="${usuario.nombre_Usuario}"></descripciontd>
+        <td th:text="${usuario.telefono_Usuario}"></descripciontd>
+        <td th:text="${usuario.cargo}"></descripciontd>
+        <td><a  class="btn btn-warning" th:href="@{usuario/edit/{id} (id=$usuario{.id}) }">Editar</a> </td>
+        <td><a  class="btn btn-danger" th:href="@{usuario/delete/{id} (id=${usuario.id}) }">Eliminar</a> </td>
+      </tr>       
+    </tbody>
+  </table>
+
+</div>
 </body>
 </html>
