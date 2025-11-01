@@ -22,19 +22,19 @@
       </ol>
 
       <h2>Actualizar Cotización</h2>
-      <form class="form-horizontal" th:action="@{/cotizaciones/update}" method="post"  enctype="multipart/form-data">
-        <input type="hidden" name="id" th:value="${cotizaciones.id}">    
+      <form class="form-horizontal" th:action="@{/cotizacion/update}" method="post"  enctype="multipart/form-data">
+        <input type="hidden" name="id_Cotizacion" th:value="${cotizacion.id_Cotizacion}">    
         <div class="form-group">
           <label class="control-label col-sm-2" for="fecha_Cotizacion">Fecha:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="fecha_Cotizacion" name="fecha" placeholder="Ingrese la fecha de cotización" required autocomplete="off" th:value="${cotizaciones.fecha_Cotizacion}">
+            <input type="date" class="form-control" id="fecha_Cotizacion" name="fecha_Cotizacion" placeholder="Ingrese la fecha de cotización" required autocomplete="off" th:value="${cotizacion.fecha_Cotizacion}">
             <div id="prueba"></div>  
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-2" for="num_Cotizacion">Número de Cotización:</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control" id="num_Cotizacion" name="número de cotización" placeholder="Ingrese el número de cotización" required autocomplete="off" th:value="${cotizaciones.num_Cotizacion}">
+            <input type="number" class="form-control" id="num_Cotizacion" name="num_Cotizacion" placeholder="Ingrese el número de cotización" required autocomplete="off" th:value="${cotizacion.num_Cotizacion}">
             <div id="prueba"></div>  
           </div>          
         </div>
