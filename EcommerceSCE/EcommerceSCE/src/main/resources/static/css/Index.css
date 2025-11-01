@@ -59,6 +59,11 @@ justify-content: center;
 
 }
 
+.logoSlidebar{
+    width: 120px;
+    height: 120px;
+}
+
 .headLogo{
     height: 30%;
     width: 100%;
