@@ -6,5 +6,57 @@
 </head>
 <body>
 
+	    <!-- Page Content -->
+    <div class="container">
+
+
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">
+        Spring eCommerce <small>Usuario</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Actualizar Usuario</li>
+      </ol>
+
+      <h2>Actualizar Usuario</h2>
+      <form class="form-horizontal" th:action="@{/usuarios/update}" method="post"  enctype="multipart/form-data">
+        <input type="hidden" name="id" th:value="${usuarios.id}">    
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="nombre_Usuario">Nombre del Usuario:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="nombre_Usuario" name="nombre usuario" placeholder="Ingrese el nombre del Usuario" required autocomplete="off" th:value="${usuarios.nombre_Usuario}">
+            <div id="prueba"></div>  
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="telefono_Usuario">Telefono:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="telefono_Usuario" name="telefono" placeholder="Ingrese el telefono del cliente" required autocomplete="off" th:value="${usuarios.telefono_Usuario}">
+            <div id="prueba"></div>  
+          </div>
+          </div>
+     
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="cargo">Cargo:</label>
+          <div class="col-sm-10">          
+            <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Ingrese el cargo" th:value="${usuarios.cargo}" required autocomplete="off">
+          </div>
+        </div>
+
+
+        
+        <div class="row">
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-success"> Guardar</button>
+          </div>             
+        </div>
+
+      </form>
+
+    </div>
+
 </body>
 </html>

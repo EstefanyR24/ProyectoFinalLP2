@@ -6,5 +6,70 @@
 </head>
 <body>
 
+	    <!-- Page Content -->
+    <div class="container">
+
+
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">
+        Spring eCommerce <small>Pedido</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Actualizar Pedido</li>
+      </ol>
+
+      <h2>Actualizar Pedido</h2>
+      <form class="form-horizontal" th:action="@{/pedidos/update}" method="post"  enctype="multipart/form-data">
+        <input type="hidden" name="id" th:value="${pedidos.id}">    
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="productos">Productos:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="productos" name="productos" placeholder="Ingrese los productos" required autocomplete="off" th:value="${pedidos.productos}">
+            <div id="prueba"></div>  
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="cliente">Nombre de Cliente:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Ingrese el nombre del Cliente" required autocomplete="off" th:value="${pedidos.cliente}">
+            <div id="prueba"></div>  
+          </div>
+          </div>
+     
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="usuario">Id Usuario:</label>
+          <div class="col-sm-10">          
+            <input type="number" class="form-control" id="usuario" name="usuario" placeholder="Ingrese el id de usuario" th:value="${pedidos.usuario}" required autocomplete="off">
+          </div>
+        </div>
+
+		<div class="form-group">
+          <label class="control-label col-sm-2" for="cotizacion">Cotización:</label>
+          <div class="col-sm-10">          
+            <input type="number" class="form-control" id="cotizacion" name="cotizacion" placeholder="Ingrese la cotizacion" th:value="${pedidos.cotizacion}" required autocomplete="off">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="fecha_Pedido">Fecha:</label>
+          <div class="col-sm-10">          
+            <input type="text" class="form-control" id="fecha_Pedido" name="fecha" placeholder="Ingrese la fecha" th:value="${pedidos.fecha_Pedido}" required autocomplete="off">
+          </div>
+        </div>
+
+        
+        <div class="row">
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-success"> Guardar</button>
+          </div>             
+        </div>
+
+      </form>
+
+    </div>
+
 </body>
 </html>

@@ -6,5 +6,43 @@
 </head>
 <body>
 
+	    <!-- Page Content -->
+    <div class="container">
+
+
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">
+        Spring eCommerce <small>Cargo</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Actualizar Cargo</li>
+      </ol>
+
+      <h2>Actualizar Cargo</h2>
+      <form class="form-horizontal" th:action="@{cargos//update}" method="post"  enctype="multipart/form-data">
+        <input type="hidden" name="id" th:value="${cargos.id}">    
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="nombre_Cargo">Nombre:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="nombre_Cargo" name="nombre" placeholder="Ingrese el nombre del cargo" required autocomplete="off" th:value="${cargo.nombre_Cargo}">
+            <div id="prueba"></div>  
+          </div>
+        </div>
+        
+
+        <div class="row">
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-success"> Guardar</button>
+          </div>             
+        </div>
+
+      </form>
+
+    </div>
+	
+
 </body>
 </html>

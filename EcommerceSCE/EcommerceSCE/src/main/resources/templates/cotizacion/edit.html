@@ -6,5 +6,49 @@
 </head>
 <body>
 
+	    <!-- Page Content -->
+    <div class="container">
+
+
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">
+        Spring eCommerce <small>Cotización</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Actualizar Cotización</li>
+      </ol>
+
+      <h2>Actualizar Cotización</h2>
+      <form class="form-horizontal" th:action="@{/cotizaciones/update}" method="post"  enctype="multipart/form-data">
+        <input type="hidden" name="id" th:value="${cotizaciones.id}">    
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="fecha_Cotizacion">Fecha:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="fecha_Cotizacion" name="fecha" placeholder="Ingrese la fecha de cotización" required autocomplete="off" th:value="${cotizaciones.fecha_Cotizacion}">
+            <div id="prueba"></div>  
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="num_Cotizacion">Número de Cotización:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="num_Cotizacion" name="número de cotización" placeholder="Ingrese el número de cotización" required autocomplete="off" th:value="${cotizaciones.num_Cotizacion}">
+            <div id="prueba"></div>  
+          </div>          
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-success"> Guardar</button>
+          </div>             
+        </div>
+
+      </form>
+
+    </div>
+	
+
 </body>
 </html>

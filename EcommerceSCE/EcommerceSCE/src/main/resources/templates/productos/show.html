@@ -20,7 +20,7 @@
     <li class="breadcrumb-item active">Ver Producto</li>
   </ol>
 
-  <a class="btn btn-primary" th:href="@{/producto/create}" > Crear Producto</a>
+  <a class="btn btn-primary" th:href="@{/productos/create}" > Crear Producto</a>
   <h2>Producto</h2>
   <table class="table">
     <thead>
@@ -35,12 +35,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr th:each="producto:${productos}">
-        <td th:text="${producto.nombre_Producto}"></descripciontd>
-        <td th:text="${producto.precio_Producto}"></descripciontd>
-        <td th:text="${producto.proveedor}"></descripciontd>
-        <td><a  class="btn btn-warning" th:href="@{producto/edit/{id} (id=${producto.id}) }">Editar</a> </td>
-        <td><a  class="btn btn-danger" th:href="@{producto/delete/{id} (id=${producto.id}) }">Eliminar</a> </td>
+      <tr th:each="productos:${productos}">
+        <td th:text="${productos.nombre_Producto}"></descripciontd>
+        <td th:text="${productos.precio_Producto}"></descripciontd>
+        <td th:text="${productos.proveedor}"></descripciontd>
+        <td><a  class="btn btn-warning" th:href="@{productos/edit/{id} (id=${productos.id}) }">Editar</a> </td>
+        <td><a  class="btn btn-danger" th:href="@{productos/delete/{id} (id=${productos.id}) }">Eliminar</a> </td>
       </tr>       
     </tbody>
   </table>
