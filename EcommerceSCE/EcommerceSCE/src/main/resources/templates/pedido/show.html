@@ -4,27 +4,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{css/heroic-features.css}" rel="stylesheet">
+        <link th:href="@{css/Index.css}" rel="stylesheet" />
+
 </head>
 <body>
-
+    <nav class="navegations">
+      <div class="navitems" th:include="home/navigations.html::header"></div>
+    
+    </nav>
 
   
 	<div class="container">
 
 
-  <!-- Page Heading/Breadcrumbs -->
-  <h1 class="mt-4 mb-3">
-    <nav class="navegations">
-  <img class="logoSlidebar" th:src="@{images/LogoSCE.png}" alt="Logo" />
-    <div class="navitems" th:include="home/navigations.html::header"></div>
-    
-  </nav>
-  </h1>
-
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-    <li class="breadcrumb-item active">Ver Pedidos</li>
-  </ol>
 
   <a class="btn btn-primary" th:href="@{/pedidos/create}" > Crear Pedido</a>
   <h2>Pedidos</h2>

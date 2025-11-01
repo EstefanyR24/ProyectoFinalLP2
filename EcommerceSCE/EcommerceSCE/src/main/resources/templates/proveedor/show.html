@@ -4,9 +4,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{css/heroic-features.css}" rel="stylesheet">
+        <link th:href="@{css/Index.css}" rel="stylesheet" />
+
 </head>
 <body>
-
+    <nav class="navegations">
+      <div class="navitems" th:include="home/navigations.html::header"></div>
+    
+    </nav>
 	
 <div class="container">
 
@@ -16,10 +21,7 @@
     Spring EcommerceSCE <small>	Proveedor</small>
   </h1>
 
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-    <li class="breadcrumb-item active">Ver Proveedor</li>
-  </ol>
+
 
   <a class="btn btn-primary" th:href="@{/proveedores/create}" > Crear Proveedor</a>
   <h2>Proveedor</h2>

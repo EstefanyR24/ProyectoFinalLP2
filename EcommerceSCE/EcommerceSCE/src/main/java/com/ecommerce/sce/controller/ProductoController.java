@@ -29,12 +29,12 @@ public class ProductoController {
     @GetMapping
     public String show(Model model) {
         model.addAttribute("productos", productoService.findAll());
-        return "producto/show";
+        return "productos/show";
     }
 
     @GetMapping("/create")
     public String create() {
-        return "producto/create";
+        return "productos/create";
     }
 
     @PostMapping("/save")
@@ -52,21 +52,21 @@ public class ProductoController {
         if (optional.isPresent()) {
             model.addAttribute("producto", optional.get());
             LOGGER.info("Producto buscado: {}", optional.get());
-            return "producto/edit";
+            return "productos/edit";
         }
-        return "redirect:/producto";
+        return "redirect:/productos";
     }
 
     @PostMapping("/update")
     public String update(Producto producto) {
         productoService.update(producto);
-        return "redirect:/producto";
+        return "redirect:/productos";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         productoService.delete(id);
-        return "redirect:/producto";
+        return "redirect:/productos";
     }
 	
 }
