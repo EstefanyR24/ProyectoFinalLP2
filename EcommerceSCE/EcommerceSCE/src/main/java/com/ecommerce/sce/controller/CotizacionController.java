@@ -15,7 +15,7 @@ import com.ecommerce.sce.model.Cotizacion;
 import com.ecommerce.sce.service.CotizacionService;
 
 @Controller
-@RequestMapping("/cotizacion")
+@RequestMapping("/cotizaciones")
 public class CotizacionController {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(CotizacionController.class);

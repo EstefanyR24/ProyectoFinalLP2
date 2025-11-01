@@ -32,14 +32,14 @@
     </thead>
 
     <tbody>
-      <tr th:each="coti:${cotizaciones}">
-        <td th:text="${coti.id_Cotizacion}"></td>
-                <td th:text="${coti.num_Cotizacion}"></td>
+      <tr th:each="cotizaciones:${cotizaciones}">
+        <td th:text="${cotizaciones.id_Cotizacion}"></td>
+                <td th:text="${cotizaciones.num_Cotizacion}"></td>
         
-                <td th:text="${coti.fecha_Cotizacion}"></td>
+                <td th:text="${cotizaciones.fecha_Cotizacion}"></td>
         
-        <td><a  class="btn btn-warning" th:href="@{/cotizacion/edit/{id} (id=${coti.id_Cotizacion}) }">Editar</a> </td>
-        <td><a  class="btn btn-danger" th:href="@{/cotizacion/delete/{id} (id=${coti.id_Cotizacion}) }">Eliminar</a> </td>
+        <td><a  class="btn btn-warning" th:href="@{/cotizaciones/edit/{id} (id=${cotizaciones.id_Cotizacion}) }">Editar</a> </td>
+        <td><a  class="btn btn-danger" th:href="@{/cotizaciones/delete/{id} (id=${cotizaciones.id_Cotizacion}) }">Eliminar</a> </td>
       </tr>       
     </tbody>
 
