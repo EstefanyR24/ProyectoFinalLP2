@@ -21,52 +21,52 @@ import com.ecommerce.sce.service.CargoService;
 public class CargoController {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(CargoController.class);
-	
-	@Autowired
-	private CargoService cargoService;
-	
-	@GetMapping("")
-	private String show(Model model) {
-		model.addAttribute("cargos", cargoService.findAll());
-		return "cargo/show";
-	}
-	
-	@GetMapping("/create")
-	public String create() {
-		return "cargo/create";
-	}
-	
-	@PostMapping("/save")
-	public String save(Cargo cargo) {
-		LOGGER.info("este es el objeto:", cargo);
-		cargoService.save(cargo);
-		return "redirect:/cargo";
-		
-		
-	}
-	
-	
-	@GetMapping("/edit/{id}")
-	public String edit(@PathVariable Integer id,Model model){
-		Cargo cargo = new Cargo();
-		Optional<Cargo> optionalCargo= cargoService.get(id);
-		cargo= optionalCargo.get();
-		model.addAttribute("Cargo buscado:{}", cargo);
-		
-		return "cargo/edit";
-	}
-	
-	@PostMapping("/update")
-	public String update(Cargo cargo) {
-		cargoService.update(cargo);
-		return "redirect:/cargo";
-	}
-	
-	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id) {
-		cargoService.delete(id);
-		return "redirect:/cargo";
-	}
+
+    @Autowired
+    private CargoService cargoService;
+
+    @GetMapping("")
+    public String show(Model model) {
+        model.addAttribute("cargos", cargoService.findAll());
+        return "cargo/show";
+    }
+
+    @GetMapping("/create")
+    public String create() {
+        return "cargo/create";
+    }
+
+    @PostMapping("/save")
+    public String save(Cargo cargo) {
+        LOGGER.info("Cargo a guardar: {}", cargo);
+        cargoService.save(cargo);
+        return "redirect:/cargo";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Integer id, Model model) {
+        Optional<Cargo> optionalCargo = cargoService.get(id);
+        if (optionalCargo.isPresent()) {
+            model.addAttribute("cargo", optionalCargo.get());
+            LOGGER.info("Cargo buscado: {}", optionalCargo.get());
+            return "cargo/edit";
+        } else {
+            LOGGER.warn("Cargo con ID {} no encontrado", id);
+            return "redirect:/cargo";
+        }
+    }
+
+    @PostMapping("/update")
+    public String update(Cargo cargo) {
+        cargoService.update(cargo);
+        return "redirect:/cargo";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id) {
+        cargoService.delete(id);
+        return "redirect:/cargo";
+    }
 	
 	
 }

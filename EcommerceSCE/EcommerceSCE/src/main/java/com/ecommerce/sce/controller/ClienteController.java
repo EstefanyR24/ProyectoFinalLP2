@@ -22,54 +22,51 @@ import com.ecommerce.sce.service.ClienteService;
 public class ClienteController {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(ClienteController.class);
-	
-	@Autowired
-	private ClienteService clienteService;
-	
-	@GetMapping("")
-	private String show(Model model) {
-		model.addAttribute("clientes", clienteService.findAll());
-		return "cliente/show";
-	}
-	
-	@GetMapping("/create")
-	public String create() {
-		return "cliente/create";
-	}
-	
-	@PostMapping("/save")
-	public String save(Cliente cliente) {
-		clienteService.save(cliente);
-		return "redirect:/cliente";
-	}
-	
-	
-	@GetMapping("/edit/{id}")
-	public String edit(@PathVariable Integer id, Model model) {
-		Cliente cliente= new Cliente();
-		Optional<Cliente> optionalCliente = clienteService.get(id);
-		cliente = optionalCliente.get();
-		LOGGER.info("Cliente buscado: {}", cliente);
-		model.addAttribute("clientes", cliente);
-		
-		return "cliente/edit";
-		
-		
-	}
-	
-	@PostMapping("/update")
-	public String update(Cliente cliente) {
-		clienteService.update(cliente);
-		
-		return "redirect:/cliente";
-	}
-	
-	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id) {
-	    clienteService.delete(id);
-	    return "redirect:/cliente";
-	}
-	
+
+    @Autowired
+    private ClienteService clienteService;
+
+    @GetMapping("")
+    public String show(Model model) {
+        model.addAttribute("clientes", clienteService.findAll());
+        return "cliente/show";
+    }
+
+    @GetMapping("/create")
+    public String create() {
+        return "cliente/create";
+    }
+
+    @PostMapping("/save")
+    public String save(Cliente cliente) {
+        clienteService.save(cliente);
+        return "redirect:/cliente";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Integer id, Model model) {
+        Optional<Cliente> optionalCliente = clienteService.get(id);
+        if (optionalCliente.isPresent()) {
+            model.addAttribute("cliente", optionalCliente.get());
+            LOGGER.info("Cliente buscado: {}", optionalCliente.get());
+            return "cliente/edit";
+        } else {
+            LOGGER.warn("Cliente con ID {} no encontrado", id);
+            return "redirect:/cliente";
+        }
+    }
+
+    @PostMapping("/update")
+    public String update(Cliente cliente) {
+        clienteService.update(cliente);
+        return "redirect:/cliente";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id) {
+        clienteService.delete(id);
+        return "redirect:/cliente";
+    }
 	
 	
 }

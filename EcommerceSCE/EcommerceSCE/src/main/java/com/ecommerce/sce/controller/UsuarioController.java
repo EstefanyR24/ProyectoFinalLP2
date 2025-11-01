@@ -22,60 +22,49 @@ import com.ecommerce.sce.controller.UsuarioController;
 public class UsuarioController {
 	
 	private final Logger LOGGER = LoggerFactory.getLogger(UsuarioController.class);
-	
-	@Autowired
-	private UsuarioService usuarioService;
-	
-	
-	@GetMapping("")
-	public String show(Model model) {
-		model.addAttribute("usuario",usuarioService.findAll());
-		return "usuario/show";
-	}
-	
-	@GetMapping("/create")
-	public String create() {
-		return "usuario/create";
-	}
-	
-	@PostMapping("/save")
-	public String save(Usuario usuario) {
-		LOGGER.info("Este es el objeto usuario {}",usuario);
-		Cargo c = new Cargo(1,"");
-		usuario.setCargo(c);
-		usuarioService.save(usuario);
-		return "redirect:/usuario";
-	}
-	
-	@GetMapping("/edit/{id}")
-	public String edit(@PathVariable Integer id, Model model) {
-		Usuario usuario= new Usuario();
-		Optional<Usuario> optionalUsuario=usuarioService.get(id);
-		usuario= optionalUsuario.get();
-		LOGGER.info("Usuario buscado: {}",usuario);
-		model.addAttribute("usuario", usuario);
-		
-		return "usuario/edit";
-	}
-	
-	@PostMapping("/update")
-	public String update(Usuario usuario) {
-		usuarioService.update(usuario);		
-		return "redirect:/usuario";
-	}
-	
-	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id) {
-		usuarioService.delete(id);
-		return "redirect:/usuario";
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+
+    @Autowired
+    private UsuarioService usuarioService;
+
+    @GetMapping("")
+    public String show(Model model) {
+        model.addAttribute("usuarios", usuarioService.findAll());
+        return "usuario/show";
+    }
+
+    @GetMapping("/create")
+    public String create() {
+        return "usuario/create";
+    }
+
+    @PostMapping("/save")
+    public String save(Usuario usuario) {
+        LOGGER.info("Usuario a guardar: {}", usuario);
+        usuarioService.save(usuario);
+        return "redirect:/usuario";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Integer id, Model model) {
+        Optional<Usuario> optional = usuarioService.get(id);
+        if (optional.isPresent()) {
+            model.addAttribute("usuario", optional.get());
+            LOGGER.info("Usuario buscado: {}", optional.get());
+            return "usuario/edit";
+        }
+        return "redirect:/usuario";
+    }
+
+    @PostMapping("/update")
+    public String update(Usuario usuario) {
+        usuarioService.update(usuario);
+        return "redirect:/usuario";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id) {
+        usuarioService.delete(id);
+        return "redirect:/usuario";
+    }
 
 }
