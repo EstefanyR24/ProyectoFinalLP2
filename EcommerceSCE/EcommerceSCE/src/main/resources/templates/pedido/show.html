@@ -22,23 +22,32 @@
 
   <a class="btn btn-primary" th:href="@{/pedidos/create}" > Crear Pedido</a>
   <h2>Pedidos</h2>
-<tbody>
-  <tr th:each="pedido : ${pedidos}">
-    <td>
-      <ul>
-        <li th:each="producto : ${pedido.productos}" 
-            th:text="${producto.nombre}"></li>
-      </ul>
-    </td>
-    <td th:text="${pedido.cliente.nombre}"></td>
-    <td th:text="${pedido.usuario.nombreUsuario}"></td>
-    <td th:text="${pedido.cotizacion.id_Cotizacion}"></td>
-    <td th:text="${pedido.fecha_Pedido}"></td>
-    <td><a class="btn btn-warning" th:href="@{/pedidos/edit/{id}(id=${pedido.id_Pedido})}">Editar</a></td>
-    <td><a class="btn btn-danger" th:href="@{/pedidos/delete/{id}(id=${pedido.id_Pedido})}">Eliminar</a></td>
-  </tr>
-</tbody>
-
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Productos</th> 
+        <th scope="col">Nombre de Cliente</th>
+        <th scope="col">Id Usuario</th>
+        <th scope="col">Nro Cotización</th>
+        <th scope="col">Fecha</th>
+         <th scope="col">Acción</th>
+        <th scope="col">Acción</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="pedidos:${pedido}">
+        <td th:text="${pedidos.productos}"></descripciontd>
+        <td th:text="${pedidos.cliente}"></descripciontd>
+        <td th:text="${pedidos.usuario}"></descripciontd>
+        <td th:text="${pedidos.cotizacion}"></descripciontd>
+        <td th:text="${pedidos.fecha_Pedido}"></descripciontd>
+        <td><a  class="btn btn-warning" th:href="@{pedidos/edit/{id} (id=${pedidos.id}) }">Editar</a> </td>
+        <td><a  class="btn btn-danger" th:href="@{pedidos/delete/{id} (id=${pedidos.id}) }">Eliminar</a> </td>
+      </tr>       
+    </tbody>
+  </table>
 
 </div>
 
