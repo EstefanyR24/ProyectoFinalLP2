@@ -23,7 +23,7 @@ public class CotizacionController {
     @Autowired
     private CotizacionService cotizacionService;
 
-    @GetMapping("")
+    @GetMapping
     public String show(Model model) {
         model.addAttribute("cotizaciones", cotizacionService.findAll());
         return "cotizacion/show";

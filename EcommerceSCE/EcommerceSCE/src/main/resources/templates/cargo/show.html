@@ -3,20 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link th:href="@{css/heroic-features.css}" rel="stylesheet">
+<link th:href="@{css/Index.css}" rel="stylesheet">
 </head>
 <body>
 
 	<div class="container">
 
+  <nav class="navegations">
+  <img class="logoSlidebar" th:src="@{images/LogoSCE.png}" alt="Logo" />
+    <div class="navitems" th:include="home/navigations.html::header"></div>
+    
+  </nav>
 
-  <!-- Page Heading/Breadcrumbs -->
-  <h1 class="mt-4 mb-3">
-    Spring EcommerceSCE <small>	Cargo</small>
-  </h1>
 
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
     <li class="breadcrumb-item active">Ver Cargo</li>
   </ol>
 

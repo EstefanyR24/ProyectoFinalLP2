@@ -16,7 +16,7 @@ import com.ecommerce.sce.model.Pedido;
 import com.ecommerce.sce.service.PedidoService;
 
 @Controller
-@RequestMapping("/pedido")
+@RequestMapping("/pedidos")
 public class PedidoController {
 
 	 private final Logger LOGGER = LoggerFactory.getLogger(PedidoController.class);
@@ -24,7 +24,7 @@ public class PedidoController {
 	    @Autowired
 	    private PedidoService pedidoService;
 	    
-	    @GetMapping("")
+	    @GetMapping
 	    public String show(Model model) {
 	        model.addAttribute("pedidos", pedidoService.findAll());
 	        return "pedido/show";

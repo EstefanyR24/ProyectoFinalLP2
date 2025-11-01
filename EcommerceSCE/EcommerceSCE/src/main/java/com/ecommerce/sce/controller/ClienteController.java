@@ -18,7 +18,7 @@ import com.ecommerce.sce.service.ClienteService;
 
 
 @Controller
-@RequestMapping("/cliente")
+@RequestMapping("/clientes")
 public class ClienteController {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(ClienteController.class);
@@ -26,7 +26,7 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @GetMapping("")
+    @GetMapping
     public String show(Model model) {
         model.addAttribute("clientes", clienteService.findAll());
         return "cliente/show";

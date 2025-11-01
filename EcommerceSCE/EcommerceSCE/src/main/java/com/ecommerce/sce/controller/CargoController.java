@@ -16,7 +16,7 @@ import com.ecommerce.sce.model.Cargo;
 import com.ecommerce.sce.service.CargoService;
 
 @Controller
-@RequestMapping("/cargo")
+@RequestMapping("/cargos")
 
 public class CargoController {
 
@@ -25,7 +25,7 @@ public class CargoController {
     @Autowired
     private CargoService cargoService;
 
-    @GetMapping("")
+    @GetMapping
     public String show(Model model) {
         model.addAttribute("cargos", cargoService.findAll());
         return "cargo/show";

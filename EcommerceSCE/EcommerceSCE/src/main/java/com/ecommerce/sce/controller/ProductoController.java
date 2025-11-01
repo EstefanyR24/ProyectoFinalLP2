@@ -26,7 +26,7 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
-    @GetMapping("")
+    @GetMapping
     public String show(Model model) {
         model.addAttribute("productos", productoService.findAll());
         return "producto/show";

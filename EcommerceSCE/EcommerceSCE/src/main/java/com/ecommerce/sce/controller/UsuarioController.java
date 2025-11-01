@@ -18,7 +18,7 @@ import com.ecommerce.sce.model.Usuario;
 import com.ecommerce.sce.controller.UsuarioController;
 
 @Controller
-@RequestMapping("/usuario")
+@RequestMapping("/usuarios")
 public class UsuarioController {
 	
 	private final Logger LOGGER = LoggerFactory.getLogger(UsuarioController.class);
@@ -26,7 +26,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("")
+    @GetMapping
     public String show(Model model) {
         model.addAttribute("usuarios", usuarioService.findAll());
         return "usuario/show";

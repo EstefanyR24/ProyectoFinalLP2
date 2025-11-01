@@ -1,45 +1,74 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link th:href="@{css/Index.css}" rel="stylesheet">
-</head>
-<body>
-
-<div class="contenedorBody">
-<nav class="navegations" th:include="home/navigations.html::header">
-
-</nav>
-
-<div class="mainView">
-
-<div class="slideBar">
-
-    <div class="headLogo">
-        <img class="logoSlidebar" th:src="@{images/LogoSCE.png}" alt="Logo SCE">
-    </div>
-    <div class="botonera">
-    <a class="btnSlidebar" href="#">Cotizacion</a>
-    <a class="btnSlidebar" href="#">Pedidos</a>
-    <a class="btnSlidebar" href="#">Clientes</a>
-    <a class="btnSlidebar" href="#">Productos</a>
-    <a class="btnSlidebar" href="#">Proveedores</a>
-    </div>
-
-
-</div>
-<div class="contentView">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+        <link th:href="@{css/Index.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navegations">
+      <img class="logoSlidebar" th:src="@{images/LogoSCE.png}" alt="Logo" />
+      <div class="navitems" th:include="home/navigations.html::header"></div>
     
-</div>
+    </nav>
+
+
+    <main>
+      <div>
+      <h1>Bienvenido a SCE Ecommerce</h1>
+      <p>Tu plataforma confiable de productos de ferreteria.</p>
+    </div>
+    
+    
+    
+    <div>
+      <h3>Nuestros principales productos:</h3>
+      <section class="catalogo-productos">
+        <div class="productos" id="productosContainer">
+        <div><img class="productoImg" th:src="@{images/productoA.webp}" alt="prod"></div>
+        <div>
+          <p>TARUGO PLASTICO NARANJA 3/8</p>
+          <p>Accesorios de alta calidad ideales para carpintería y construcción</p>
+        </div>
+        </div>
+        
+        
+                <div class="productos" id="productosContainer">
+        <div><img class="productoImg" th:src="@{images/productoB.webp}" alt="prod"></div>
+        <div>
+          <p>TARUGO PLASTICO NARANJA 3/8</p>
+          <p>Accesorios de alta calidad ideales para carpintería y construcción</p>
+        </div>
+        </div>
+        
+        
+                <div class="productos" id="productosContainer">
+        <div><img class="productoImg" th:src="@{images/productoC.webp}" alt="prod"></div>
+        <div>
+          <p>TARUGO PLASTICO NARANJA 3/8</p>
+          <p>Accesorios de alta calidad ideales para carpintería y construcción</p>
+        </div>
+        </div>
+        
+        
+        <div class="productos" id="productosContainer">
+        <div><img class="productoImg" th:src="@{images/productoD.webp}" alt="prod"></div>
+        <div>
+          <p>TARUGO PLASTICO NARANJA 3/8</p>
+          <p>Accesorios de alta calidad ideales para carpintería y construcción</p>
+        </div>
+        </div>
+
+      </section>
+    </main>
 
 
 
-</div>
+    <footer class="footerapp">
+      <p>&copy; 2024 SCE Ecommerce. Todos los derechos reservados.</p>
+      <p></p>
+    </footer>
+  </body>
+  
 
-
-
-
-</div>
-</body>
 </html>

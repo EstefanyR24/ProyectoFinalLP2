@@ -17,7 +17,7 @@ import com.ecommerce.sce.controller.ProveedorController;
 
 
 @Controller
-@RequestMapping("/proveedor")
+@RequestMapping("/proveedores")
 public class ProveedorController {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(ProveedorController.class);
