@@ -1,0 +1,80 @@
+@charset "UTF-8";
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Verdana, sans-serif;
+height: 100vh;
+    overflow: hidden;
+}
+
+.contenedorBody{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;}
+
+.navegations{
+    background: red;
+    width: 100%;
+    height: 60px;
+}
+
+.mainView{
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+
+.slideBar{
+    background: #222;
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.botonera{
+height: 70%;
+width: 100%;
+padding: 5px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.botonera a{
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+}
+
+.botonera a:hover{
+    background: white;
+    color: black;
+    transition: 0.3s;
+    cursor: pointer;
+
+}
+
+.headLogo{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contentView{
+    background: #f1f1f1;
+    width: calc(100% - 250px);
+    height: 100%;
+}
+
+.btnSlidebar{
+    color: white;
+    font-size: 15px;
+    margin: 10px;
+    cursor: pointer;
+}
