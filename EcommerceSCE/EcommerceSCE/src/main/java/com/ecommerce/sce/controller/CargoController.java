@@ -40,7 +40,7 @@ public class CargoController {
     public String save(Cargo cargo) {
         LOGGER.info("Cargo a guardar: {}", cargo);
         cargoService.save(cargo);
-        return "redirect:/cargo";
+        return "redirect:/cargos";
     }
 
     @GetMapping("/edit/{id}")

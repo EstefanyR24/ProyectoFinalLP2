@@ -30,10 +30,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr th:each="cargos:${cargo}">
-        <td th:text="${cargos.nombre_Cargo}"></descripciontd>
-        <td><a  class="btn btn-warning" th:href="@{cargos/edit/{id} (id=${cargos.id}) }">Editar</a> </td>
-        <td><a  class="btn btn-danger" th:href="@{cargos/delete/{id} (id=${cargos.id}) }">Eliminar</a> </td>
+      <tr th:each="cargo:${cargos}">
+        <td th:text="${cargo.nombre_Cargo}"></td>
+        <td><a  class="btn btn-warning" th:href="@{/cargos/edit/{id} (id=${cargo.id_Cargo}) }">Editar</a> </td>
+        <td><a  class="btn btn-danger" th:href="@{/cargos/delete/{id} (id=${cargo.id_Cargo}) }">Eliminar</a> </td>
       </tr>       
     </tbody>
   </table>
