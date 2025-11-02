@@ -17,15 +17,8 @@
 
 
       <h1 class="mt-4 mb-3">
-        Spring eCommerce <small>Cotización</small>
+        Actualizar Cotización
       </h1>
-
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active">Actualizar Cotización</li>
-      </ol>
-
-      <h2>Actualizar Cotización</h2>
       <form class="form-horizontal" th:action="@{/cotizacion/update}" method="post"  enctype="multipart/form-data">
         <input type="hidden" name="id_Cotizacion" th:value="${cotizacion.id_Cotizacion}">    
         <div class="form-group">
@@ -43,11 +36,14 @@
           </div>          
         </div>
 
-        <div class="row">
-          <div class="col-sm-2">
-            <button type="submit" class="btn btn-success"> Guardar</button>
-          </div>             
-        </div>
+            <div class="row mt-3">
+                <div class="col-md-2">
+    <button type="submit" class="btn btn-success">Actualizar</button>                </div>
+                <div class="col-md-2">
+    <a th:href="@{/cotizacion}" class="btn btn-secondary">Volver</a>
+    
+                    </div>
+            </div>
 
       </form>
 

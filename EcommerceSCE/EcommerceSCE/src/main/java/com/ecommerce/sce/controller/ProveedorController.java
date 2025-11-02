@@ -33,6 +33,8 @@ public class ProveedorController {
 
     @GetMapping("/create")
     public String create(Model model) {
+        model.addAttribute("proveedor", new Proveedor());
+
         return "proveedor/create";
     }
     

@@ -40,16 +40,18 @@
       <tr>
       	<th>Id</th>
         <th scope="col">Nombre</th>
-         <th scope="col">Acción</th>
-        <th scope="col">Acción</th>
+         <th colspan="2" class="text-center" scope="col">Acción</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr th:each="cargo:${cargos}">
         <td th:text="${cargo.id_Cargo}"></td>
         <td th:text="${cargo.nombre_Cargo}"></td>
-        <td><a  class="btn btn-warning" th:href="@{/cargos/edit/{id} (id=${cargo.id_Cargo}) }">Editar</a> </td>
-        <td><a  class="btn btn-danger" th:href="@{/cargos/delete/{id} (id=${cargo.id_Cargo}) }">Eliminar</a> </td>
+        <td class="text-center"><a  class="btn btn-warning" th:href="@{/cargos/edit/{id} (id=${cargo.id_Cargo}) }">Editar</a>
+        </td>
+        <td>
+        <a  class="btn btn-danger" th:href="@{/cargos/delete/{id} (id=${cargo.id_Cargo}) }">Eliminar</a> </td>
       </tr>       
     </tbody>
   </table>
