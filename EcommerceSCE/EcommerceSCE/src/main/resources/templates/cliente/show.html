@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Clientes</title>
+    <title>CLIENTES  - SCE-ECOMMERCE</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link th:href="@{/css/Index.css}" rel="stylesheet" />
 </head>
@@ -17,13 +17,15 @@
     <h1 >
      Cliente
     </h1>    
+        <a class="btn btn-primary" th:href="@{/clientes/create}" >+ Crear Cliente</a>  
+    
     </div>
     
       
    <div class="count">
             <p class="mb-4">Listado de Cliente</p>
   
-  <p>      <span th:text="${#lists.size(clientes)}"></span>
+  <p> Items :     <span th:text="${#lists.size(clientes)}"></span>
   </p>
   
   </div>    
@@ -35,7 +37,7 @@
                 <th>RUC</th>
                 <th>Teléfono</th>
                 <th>Editar</th>
-                <th>Eliminar</th>
+               <!--  <th>Eliminar</th> -->
             </tr>
         </thead>
         <tbody>
@@ -45,7 +47,7 @@
                 <td th:text="${cliente.ruc_Cliente}"></td>
                 <td th:text="${cliente.telefono_Cliente}"></td>
                 <td><a class="btn btn-warning" th:href="@{/clientes/edit/{id}(id=${cliente.id_Cliente})}">Editar</a></td>
-                <td><a class="btn btn-danger" th:href="@{/clientes/delete/{id}(id=${cliente.id_Cliente})}">Eliminar</a></td>
+               <!-- <td><a class="btn btn-danger" th:href="@{/clientes/delete/{id}(id=${cliente.id_Cliente})}">Eliminar</a></td>-->
             </tr>
         </tbody>
     </table>
