@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ecommerce.sce.service.CargoService;
 import com.ecommerce.sce.service.UsuarioService;
 import com.ecommerce.sce.model.Cargo;
 import com.ecommerce.sce.model.Usuario;
@@ -25,23 +26,27 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
+    
+    @Autowired 
+    private CargoService cargoService;
 
     @GetMapping
     public String show(Model model) {
         model.addAttribute("usuarios", usuarioService.findAll());
-        return "usuario/show";
+        return "usuarios/show";
     }
 
     @GetMapping("/create")
-    public String create() {
-        return "usuario/create";
+    public String create(Model model) {
+        model.addAttribute("cargos", cargoService.findAll()); // <-- agrega esto
+        return "usuarios/create";
     }
 
     @PostMapping("/save")
     public String save(Usuario usuario) {
         LOGGER.info("Usuario a guardar: {}", usuario);
         usuarioService.save(usuario);
-        return "redirect:/usuario";
+        return "redirect:/usuarios";
     }
 
     @GetMapping("/edit/{id}")
@@ -49,22 +54,22 @@ public class UsuarioController {
         Optional<Usuario> optional = usuarioService.get(id);
         if (optional.isPresent()) {
             model.addAttribute("usuario", optional.get());
-            LOGGER.info("Usuario buscado: {}", optional.get());
-            return "usuario/edit";
+            model.addAttribute("cargos", cargoService.findAll()); // 👈 importante
+            return "usuarios/edit";
         }
-        return "redirect:/usuario";
+        return "redirect:/usuarios";
     }
 
     @PostMapping("/update")
     public String update(Usuario usuario) {
         usuarioService.update(usuario);
-        return "redirect:/usuario";
+        return "redirect:/usuarios";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         usuarioService.delete(id);
-        return "redirect:/usuario";
+        return "redirect:/usuarios";
     }
 
 }
