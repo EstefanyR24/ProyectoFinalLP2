@@ -31,9 +31,14 @@
       <label for="telefono_Cliente" class="form-label">Teléfono</label>
       <input type="text" class="form-control" id="telefono_Cliente" name="telefono_Cliente" th:value="${cliente.telefono_Cliente}" required>
     </div>
-
-    <button type="submit" class="btn btn-success">Actualizar</button>
+            <div class="row mt-3">
+                <div class="col-md-2">
+    <button type="submit" class="btn btn-success">Actualizar</button>                </div>
+                <div class="col-md-2">
     <a th:href="@{/clientes}" class="btn btn-secondary">Volver</a>
+    
+                    </div>
+            </div>
   </form>
 </div>
 

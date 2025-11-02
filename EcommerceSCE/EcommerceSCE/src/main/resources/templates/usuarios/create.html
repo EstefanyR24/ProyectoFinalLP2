@@ -29,7 +29,7 @@
 
       <div class="form-group mb-3">
         <label for="cargo">Cargo:</label>
-        <select id="cargo" name="cargo.id_Cargo" class="form-control" required>
+        <select id="cargo" name="cargo.id_Cargo" class="form-select" required>
           <option value="" disabled selected>Seleccione un cargo</option>
           <option th:each="cargo : ${cargos}" 
                   th:value="${cargo.id_Cargo}" 
@@ -38,10 +38,13 @@
         </select>
       </div>
 
-      <div class="mt-4">
+            <div class="row mt-3">
+                <div class="col-md-2">
         <button type="submit" class="btn btn-success">Guardar</button>
-        <a th:href="@{/usuarios}" class="btn btn-secondary">Cancelar</a>
-      </div>
+                </div>
+                <div class="col-md-2">        <a th:href="@{/usuarios}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </div>
     </form>
   </div>
 

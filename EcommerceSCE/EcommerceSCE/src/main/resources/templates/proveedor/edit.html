@@ -7,18 +7,10 @@
     <link th:href="@{/css/Index.css}" rel="stylesheet" />
 </head>
 <body>
-
+    <nav class="navegations">
+        <div class="navitems" th:include="home/navigations.html::header"></div>
+    </nav>
 <div class="container mt-4">
-
-    <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">
-        Spring eCommerce <small>Proveedor</small>
-    </h1>
-
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-        <li class="breadcrumb-item active">Actualizar Proveedor</li>
-    </ol>
 
     <h2>Actualizar Proveedor</h2>
 

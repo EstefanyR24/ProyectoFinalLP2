@@ -17,18 +17,7 @@
     <div class="container">
 
 
-
-      <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">
-        Spring eCommerce <small>Cargo</small>
-      </h1>
-
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active">Actualizar Cargo</li>
-      </ol>
-
-      <h2>Actualizar Cargo</h2>
+      <h2 class="p-2">Actualizar Cargo</h2>
       <form class="form-horizontal" th:action="@{/cargos/update}" method="post" enctype="multipart/form-data">
 
         <input type="hidden" name="id_Cargo" th:value="${cargo.id_Cargo}">    
@@ -41,7 +30,7 @@
         </div>
         
 
-        <div class="row">
+        <div class="row p-2">
           <div class="col-sm-2">
             <button type="submit" class="btn btn-success"> Guardar</button>
           </div>             
