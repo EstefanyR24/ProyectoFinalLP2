@@ -214,15 +214,51 @@ height: 220px;
         display: flex;
     align-items: center;
     justify-content: space-around;
-height: 18px;
+height: 40px;
 width: 100%;;
     }
     
+        .count p{
+        display :flex}
     .count p:nth-child(1){
         flex: 1;
     }
     
-    .count p:nth-child(2){
+    .count span{
+    content:'Items:';
+    height: 30px;
+    width: 30px;
+    background-color: #efefef;
+    border-radius: 5px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
         
     }
+    
+    
+    
+    /* Para navegadores basados en WebKit (Chrome, Edge, Safari) */
+body {
+  scrollbar-gutter: stable; /* evita que el contenido salte */
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* grosor */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* fondo invisible */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3); /* color del scroll */
+  border-radius: 10px; /* bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.5);
+}
+    
+ 
     
