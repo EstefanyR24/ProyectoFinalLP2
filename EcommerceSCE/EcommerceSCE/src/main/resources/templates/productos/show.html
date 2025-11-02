@@ -12,12 +12,24 @@
 </nav>
 
 <div class="container mt-4">
+ <div class="titulo">
     <h1>Productos</h1>
-    <a class="btn btn-primary mb-3" th:href="@{/productos/create}">Crear Producto</a>
+    
+    
+    <a class="btn btn-primary mb-3" th:href="@{/productos/create}">+ Crear Producto</a>
+  </div>
+
+  <div class="count">
+            <p class="mb-4">Listado de Productos</p>
+  
+      <span th:text="${#lists.size(productos)}"></span>
+  
+  </div>
 
     <table class="table table-striped">
         <thead>
             <tr>
+            	<th>Id</th>
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Stock</th>
@@ -28,6 +40,7 @@
         </thead>
         <tbody>
             <tr th:each="prod : ${productos}">
+                <td th:text="${prod.id_Producto}"></td>
                 <td th:text="${prod.nombre_Producto}"></td>
                 <td th:text="${prod.precio_Producto}"></td>
                 <td th:text="${prod.stock_Producto}"></td>

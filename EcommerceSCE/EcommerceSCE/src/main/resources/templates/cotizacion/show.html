@@ -1,35 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link th:href="@{css/heroic-features.css}" rel="stylesheet">
-<link th:href="@{css/Index.css}" rel="stylesheet" />
+<title>Cotizacion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/Index.css}" rel="stylesheet" />
 
 </head>
 <body>
     <nav class="navegations">
       <div class="navitems" th:include="home/navigations.html::header"></div>
     </nav>
-<div class="container">
+<div class="container mt-4">
 
-  <h1 class="mt-4 mb-3">
-    Spring EcommerceSCE <small>	Cotizaciones en curso</small>
+
+  
+  <div class="titulo">
+  
+    <h1>
+  	Cotizaciones
   </h1>
-
-  <a class="btn btn-primary" th:href="@{/cotizacion/create}" > Crear Cotización</a>
-  <h2>Cotizaciones</h2>
+    <a class="btn btn-primary" th:href="@{/cotizacion/create}" >+ Crear Cotización</a>  
+  </div>
+  
+  
+     <div class="count">
+     
+    <p class="mb-4">Listado de Cotización</p>
+     
+    <span th:text="${#lists.size(cotizaciones)}"></span>
+         </div>
 
   <div class="alert alert-danger" role="alert" th:if="${error}" th:text="${error}">
   </div>
 
-<table class="table">
+<table class="table table-striped">
 
     <thead>
       <tr>
-        <th scope="col">Id</th>
-         <th scope="col">Numero de Cotizacion</th>
-        <th scope="col">Fecha de Cotizacion</th>
+        <th scope="col">ID</th>
+         <th scope="col">NUMERO DE COTIZACION</th>
+        <th scope="col">FECHA DE COTIZACION</th>
+                      <th>EDITAR</th>
+                <th>ELIMINAR</th>
       </tr>
     </thead>
 
@@ -61,6 +74,8 @@
 </table>
 
 </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

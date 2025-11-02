@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Pedidos - Ecommerce SCE</title>
-<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
-<link th:href="@{/css/Index.css}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/Index.css}" rel="stylesheet" />
 </head>
 
 <body>
@@ -12,18 +12,28 @@
     <div class="navitems" th:include="home/navigations.html :: header"></div>
   </nav>
 
-  <div class="container">
-    <h1 class="mt-4 mb-3">
-      Spring EcommerceSCE <small>Pedidos</small>
+  <div class="container mt-4">
+  
+   <div class="titulo">
+    <h1>
+      Pedidos
     </h1>
+        <a class="btn btn-primary mb-3" th:href="@{/pedidos/create}">+ Crear Pedido</a>
+    </div>
+    
+    
+  <div class="count">
+            <p class="mb-4">Listado de Pedidos</p>
+  
+      <span th:text="${#lists.size(pedidos)}"></span>
+  
+  </div>
 
-    <a class="btn btn-primary mb-3" th:href="@{/pedidos/create}">Crear Pedido</a>
-
-    <h2>Pedidos</h2>
 
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
+        <th>Id</th>
           <th>Productos</th>
           <th>Cliente</th>
           <th>Usuario</th>
@@ -35,6 +45,8 @@
       <tbody>
         <tr th:each="pedido : ${pedidos}">
           <!-- Productos del pedido -->
+                    <td th:text="${pedido.id_Pedido}"></td>
+          
           <td>
             <ul>
              <li th:each="producto : ${pedido.productos}" 

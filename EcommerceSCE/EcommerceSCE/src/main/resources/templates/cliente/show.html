@@ -12,11 +12,19 @@
     <div class="navitems" th:include="home/navigations.html::header"></div>
 </nav>
 <div class="container mt-4">
-    <h1class="mb-4">Listado de Clientes</h1>
-    <a  class="btn btn-primary mb-3" th:href="@{/clientes/create}">Crear Cliente</a>
+
+  <div class="titulo">
+    <h1 >
+     Cliente
+    </h1>
+    <a  class="btn btn-primary mb-3" th:href="@{/clientes/create}">+ Crear Cliente</a>
+    </div>
+        <p class="mb-4">Listado de Clientes</p>
+    
     <table class="table table-striped">
         <thead>
             <tr>
+            <th>Id</th>
                 <th>Nombre</th>
                 <th>RUC</th>
                 <th>Teléfono</th>
@@ -26,6 +34,7 @@
         </thead>
         <tbody>
             <tr th:each="cliente : ${clientes}">
+                <td th:text="${cliente.id_Cliente}"></td>
                 <td th:text="${cliente.nombre_Cliente}"></td>
                 <td th:text="${cliente.ruc_Cliente}"></td>
                 <td th:text="${cliente.telefono_Cliente}"></td>
