@@ -53,7 +53,7 @@ public class ProductoController {
         productoService.save(producto);
         return "redirect:/productos";
     }
- // Formulario para editar
+
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         Optional<Producto> optional = productoService.get(id);

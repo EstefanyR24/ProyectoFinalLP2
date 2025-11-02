@@ -30,7 +30,6 @@ public class ProveedorServiceImpl implements ProveedorService {
 
 	 @Override
 	    public void update(Proveedor proveedor) {
-	        // Busca primero si existe
 	        Optional<Proveedor> optional = proveedorRepository.findById(proveedor.getId_Proveedor());
 	        if(optional.isPresent()) {
 	            Proveedor p = optional.get();

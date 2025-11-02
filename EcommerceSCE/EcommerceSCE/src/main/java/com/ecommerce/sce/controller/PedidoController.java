@@ -36,14 +36,14 @@ public class PedidoController {
     @Autowired
     private CotizacionRepository cotizacionRepository;
 
-    //  LISTAR
+   
     @GetMapping
     public String listar(Model model) {
         model.addAttribute("pedidos", pedidoService.findAll());
         return "pedido/show";
     }
 
-    //  CREAR
+   
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("pedido", new Pedido());
@@ -54,7 +54,7 @@ public class PedidoController {
         return "pedido/create";
     }
 
-    //  GUARDAR
+   
     @PostMapping("/save")
     public String save(@ModelAttribute Pedido pedido,
                        @RequestParam("productos") List<Integer> productosIds) {
@@ -76,12 +76,12 @@ public class PedidoController {
             model.addAttribute("clientes", clienteRepository.findAll());
             model.addAttribute("usuarios", usuarioRepository.findAll());
             model.addAttribute("cotizaciones", cotizacionRepository.findAll());
-            return "pedido/edit"; // ✅ Singular, coincide con tu carpeta real
+            return "pedido/edit"; 
         }
         return "redirect:/pedidos";
     }
 
-    //  ACTUALIZAR
+
     @PostMapping("/update")
     public String update(@ModelAttribute Pedido pedido,
                          @RequestParam("productos") List<Integer> productosIds) {
@@ -94,7 +94,7 @@ public class PedidoController {
         return "redirect:/pedidos";
     }
 
-    //  ELIMINAR
+  
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         pedidoService.delete(id);
