@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/home")
+
 public class Gestion {
 
-    @GetMapping
+
+    @GetMapping({"", "/"})
     public String home() {
-        return "/home/index"; 
+        return "home/index"; 
     }
-	
-	
+
 	
 }
