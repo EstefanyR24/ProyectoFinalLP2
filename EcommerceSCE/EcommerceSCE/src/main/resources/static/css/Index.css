@@ -67,6 +67,7 @@ html, body {
 .logoSlidebar{
     
     width: 250px;
+    margin-right: 10px;
 }
 
 
@@ -84,7 +85,8 @@ height: 220px;
   font-size: 1.5rem;
   line-height: 1.4;
   justify-content: center;
-  
+   align-items: center;        /* centra verticalmente */
+  text-align: center;  
   
 
 }
@@ -97,7 +99,7 @@ height: 220px;
 	
 }
 .titulo_producto{
-	margin: 8px 0;
+	margin: 15px 0;
 	text-align: center;
 }
 
@@ -114,22 +116,44 @@ height: 220px;
 	
 	  background-color: white;
 	  border: 1px solid rgba(0, 0, 0, 0.1); /* borde negro muy suave */
-	  box-shadow: 0 4px 10px 3px rgba(0, 0, 0, 0.1);
-	  border-radius: 10px;
+	  box-shadow: 0 3px 5px 2px rgba(0,0,0,0.3);
+	  border-radius: 12px;
 	  padding: 30px;
-	  width: 250px;
+	  width: 280px;
+	  height: 480px;
+	  transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
 	  
-	
+}
+
+
+.productos:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(55, 54, 54, 0.5);
 }
 
 .sub_titulo{
+	padding-top:10px;
 	font-weight: bold;
+	color:#55769E;
 }
+
+.precio{
+	
+	background: linear-gradient(135deg, #d7c5ff, #b8e1ff);
+	padding: 10px;
+	font-weight: bold;
+	text-decoration: underline;
+    text-decoration-color: #c8a2f3; /* 💜 color del banner */
+    text-decoration-thickness: 4px;
+    width:230px;
+
+}
+
 
 .btn{
   padding: 5px;
   height: 30px;
-  
   border-radius: 6px;
   border: 1px solid #d3d3d3;
   display: flex;
@@ -152,7 +176,7 @@ height: 220px;
     
     
 .productoImg{
-	 width: 200px;
+	 width: 220px;
 	 height: 200px;
 	
 	 
