@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,9 +62,16 @@ public class CotizacionController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        cotizacionService.delete(id);
-        return "redirect:/cotizacion";
+    public String delete(@PathVariable Integer id, Model model) {
+        try {
+            cotizacionService.delete(id);
+            return "redirect:/cotizacion";
+        } catch (DataIntegrityViolationException e) {
+            LOGGER.error("No se puede eliminar la cotización con ID {} porque tiene pedidos asociados", id);
+            model.addAttribute("error", "No se puede eliminar la cotización porque tiene pedidos asociados");
+            model.addAttribute("cotizaciones", cotizacionService.findAll());
+            return "cotizacion/show";
+        }
     }
 	
 	

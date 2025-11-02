@@ -20,6 +20,8 @@
   <a class="btn btn-primary" th:href="@{/cotizacion/create}" > Crear Cotización</a>
   <h2>Cotizaciones</h2>
 
+  <div class="alert alert-danger" role="alert" th:if="${error}" th:text="${error}">
+  </div>
 
 <table class="table">
 

@@ -2,79 +2,89 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link th:href="@{/css/Index.css}" rel="stylesheet" />
-
+<title>Editar Pedido</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link th:href="@{/css/Index.css}" rel="stylesheet" />
 </head>
+
 <body>
-    <nav class="navegations">
-      <div class="navitems" th:include="home/navigations.html::header"></div>
-    </nav>
-	    <!-- Page Content -->
-    <div class="container">
+  <nav class="navegations">
+    <div class="navitems" th:include="home/navigations.html::header"></div>
+  </nav>
 
+  <div class="container mt-4">
+    <h1>Actualizar Pedido</h1>
 
+    <form th:action="@{/pedidos/update}" method="post" class="form-horizontal">
+      <!-- ID oculto -->
+      <input type="hidden" name="id" th:value="${pedido.id_Pedido}">
 
-      <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">
-        Spring eCommerce <small>Pedido</small>
-      </h1>
+      <!-- Productos -->
+      <div class="mb-3">
+        <label for="productos" class="form-label">Productos</label>
+        <select multiple class="form-control" id="productos" name="productos" required>
+          <option th:each="producto : ${productos}"
+                  th:value="${producto.id_Producto}"
+                  th:text="${producto.nombre_Producto}"
+                  th:selected="${pedido.productos.contains(producto)}">
+          </option>
+        </select>
+      </div>
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active">Actualizar Pedido</li>
-      </ol>
+      <!-- Cliente -->
+      <div class="mb-3">
+        <label for="cliente" class="form-label">Cliente</label>
+        <select class="form-control" id="cliente" name="cliente" required>
+          <option th:each="cliente : ${clientes}"
+                  th:value="${cliente.id_Cliente}"
+                  th:text="${cliente.nombre_Cliente}"
+                  th:selected="${pedido.cliente.id_Cliente == cliente.id_Cliente}">
+          </option>
+        </select>
+      </div>
 
-      <h2>Actualizar Pedido</h2>
-      <form class="form-horizontal" th:action="@{/pedidos/update}" method="post"  enctype="multipart/form-data">
-        <input type="hidden" name="id" th:value="${pedidos.id}">    
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="productos">Productos:</label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="productos" name="productos" placeholder="Ingrese los productos" required autocomplete="off" th:value="${pedidos.productos}">
-            <div id="prueba"></div>  
-          </div>
+      <!-- Usuario -->
+      <div class="mb-3">
+        <label for="usuario" class="form-label">Usuario</label>
+        <select class="form-control" id="usuario" name="usuario" required>
+          <option th:each="usuario : ${usuarios}"
+                  th:value="${usuario.id_Usuario}"
+                  th:text="${usuario.nombre_Usuario}"
+                  th:selected="${pedido.usuario.id_Usuario == usuario.id_Usuario}">
+          </option>
+        </select>
+      </div>
+
+      <!-- Cotización -->
+      <div class="mb-3">
+        <label for="cotizacion" class="form-label">Cotización</label>
+        <select class="form-control" id="cotizacion" name="cotizacion" required>
+          <option th:each="cotizacion : ${cotizaciones}"
+                  th:value="${cotizacion.id_Cotizacion}"
+                  th:text="${cotizacion.num_Cotizacion}"
+                  th:selected="${pedido.cotizacion.id_Cotizacion == cotizacion.id_Cotizacion}">
+          </option>
+        </select>
+      </div>
+
+      <!-- Fecha -->
+      <div class="mb-3">
+        <label for="fecha_Pedido" class="form-label">Fecha del Pedido</label>
+        <input type="date" class="form-control" id="fecha_Pedido" name="fecha_Pedido"
+               th:value="${pedido.fecha_Pedido}" required>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-success">Guardar</button>
         </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="cliente">Nombre de Cliente:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Ingrese el nombre del Cliente" required autocomplete="off" th:value="${pedidos.cliente}">
-            <div id="prueba"></div>  
-          </div>
-          </div>
-     
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="usuario">Id Usuario:</label>
-          <div class="col-sm-10">          
-            <input type="number" class="form-control" id="usuario" name="usuario" placeholder="Ingrese el id de usuario" th:value="${pedidos.usuario}" required autocomplete="off">
-          </div>
+        <div class="col-md-2">
+          <a th:href="@{/pedidos}" class="btn btn-secondary">Volver</a>
         </div>
+      </div>
+    </form>
+  </div>
 
-		<div class="form-group">
-          <label class="control-label col-sm-2" for="cotizacion">Cotización:</label>
-          <div class="col-sm-10">          
-            <input type="number" class="form-control" id="cotizacion" name="cotizacion" placeholder="Ingrese la cotizacion" th:value="${pedidos.cotizacion}" required autocomplete="off">
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="fecha_Pedido">Fecha:</label>
-          <div class="col-sm-10">          
-            <input type="text" class="form-control" id="fecha_Pedido" name="fecha" placeholder="Ingrese la fecha" th:value="${pedidos.fecha_Pedido}" required autocomplete="off">
-          </div>
-        </div>
-
-        
-        <div class="row">
-          <div class="col-sm-2">
-            <button type="submit" class="btn btn-success"> Guardar</button>
-          </div>             
-        </div>
-
-      </form>
-
-    </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
