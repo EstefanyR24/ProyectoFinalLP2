@@ -16,11 +16,17 @@
   <div class="titulo">
     <h1 >
      Cliente
-    </h1>
-    <a  class="btn btn-primary mb-3" th:href="@{/clientes/create}">+ Crear Cliente</a>
+    </h1>    
     </div>
-        <p class="mb-4">Listado de Clientes</p>
     
+      
+   <div class="count">
+            <p class="mb-4">Listado de Cliente</p>
+  
+  <p>      <span th:text="${#lists.size(clientes)}"></span>
+  </p>
+  
+  </div>    
     <table class="table table-striped">
         <thead>
             <tr>

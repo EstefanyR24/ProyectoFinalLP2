@@ -27,8 +27,8 @@
      <div class="count">
      
     <p class="mb-4">Listado de Cotización</p>
-     
-    <span th:text="${#lists.size(cotizaciones)}"></span>
+     <p>    <span th:text="${#lists.size(cotizaciones)}"></span>
+     </p>
          </div>
 
   <div class="alert alert-danger" role="alert" th:if="${error}" th:text="${error}">
