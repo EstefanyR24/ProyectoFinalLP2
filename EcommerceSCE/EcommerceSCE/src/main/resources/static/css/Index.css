@@ -58,7 +58,7 @@ html, body {
 	background:  linear-gradient(135deg, #d7c5ff, #b8e1ff);
 	color: black;
 	  text-decoration: underline;
-  text-decoration-color: #c8a2f3; /* 💜 color del banner */
+  text-decoration-color: #c8a2f3; 
   text-decoration-thickness: 4px;
 	
 	
@@ -84,7 +84,7 @@ html, body {
     font-size: 1.5rem;
     line-height: 1.4;
     justify-content: center;
-    align-items: center;        /* centra verticalmente */
+    align-items: center;       
     text-align: center;  
   
 
@@ -116,7 +116,7 @@ html, body {
 .productos{
 	  cursor: pointer;
 	  background-color: white;
-	  border: 1px solid rgba(0, 0, 0, 0.1); /* borde negro muy suave */
+	  border: 1px solid rgba(0, 0, 0, 0.1); 
 	  box-shadow: 0 3px 5px 2px rgba(0,0,0,0.3);
 	  border-radius: 12px;
 	  padding: 30px;
@@ -140,7 +140,7 @@ html, body {
 }
 
 .formularioprod > * {
-  flex: 1; /* cada hijo toma el mismo espacio disponible */
+  flex: 1; 
 }
 
 
@@ -157,12 +157,12 @@ html, body {
 .precio{
 	
 	background: linear-gradient(135deg, #d7c5ff, #b8e1ff);
-	padding: 10px;
+	width: 100%;
+	padding: 10px 5px;
 	font-weight: bold;
 	text-decoration: underline;
-    text-decoration-color: #c8a2f3; /* 💜 color del banner */
+    text-decoration-color: #c8a2f3; 
     text-decoration-thickness: 4px;
-    width:230px;
      border-radius: 5px;
 
 }
@@ -193,7 +193,7 @@ html, body {
     
     
 .productoImg{
-	 width: 220px;
+	 width: 100%;
 	 height: 200px;
 	
 	 
@@ -255,22 +255,22 @@ width: 100%;;
     
     
     
-    /* Para navegadores basados en WebKit (Chrome, Edge, Safari) */
+
 body {
-  scrollbar-gutter: stable; /* evita que el contenido salte */
+  scrollbar-gutter: stable;
 }
 
 ::-webkit-scrollbar {
-  width: 8px; /* grosor */
+  width: 8px; 
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; /* fondo invisible */
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.3); /* color del scroll */
-  border-radius: 10px; /* bordes redondeados */
+  background: rgba(0,0,0,0.3);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
