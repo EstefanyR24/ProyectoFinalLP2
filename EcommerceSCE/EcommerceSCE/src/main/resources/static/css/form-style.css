@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/* Contenedor principal */
+.container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #fdfcf7; /* color crema suave */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Títulos */
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Inputs y selects */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #6c63ff; /* color violeta suave */
+    box-shadow: 0 0 5px rgba(108,99,255,0.3);
+    outline: none;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Botones */
+.btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-success {
+    background-color: #6c63ff;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #574fd6;
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    color: #333;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #ccc;
+}
+
+/* Tabla */
+.table {
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #6c63ff;
+    color: white;
+}
+
+.table tbody tr:hover {
+    background-color: #f5f2ff;
+}
