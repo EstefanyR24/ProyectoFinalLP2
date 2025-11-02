@@ -8,21 +8,21 @@
 </head>
 <body>
 
-  <!-- NAV -->
+
   <nav class="navegations">
     <div class="navitems" th:include="home/navigations.html::header"></div>
   </nav>
 
   <div class="container mt-4">
 
-    <!-- Encabezado -->
+   
     <h1 class="mb-3">
       Spring EcommerceSCE <small class="text-muted">Editar Usuario</small>
     </h1>
 
     <form th:action="@{/usuarios/update}" method="post" class="form">
 
-      <!-- Campo oculto para el ID -->
+ 
       <input type="hidden" name="id_Usuario" th:value="${usuario.id_Usuario}" />
 
       <div class="form-group mb-3">
@@ -66,7 +66,7 @@
 
   </div>
 
-  <!-- JS opcional -->
+
   <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

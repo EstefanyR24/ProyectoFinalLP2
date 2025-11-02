@@ -1,23 +1,24 @@
 @charset "UTF-8";
-/* Contenedor principal */
+
+
 .container {
     max-width: 700px;
     margin: 30px auto;
     padding: 25px;
-    background-color: #fdfcf7; /* color crema suave */
+    background-color: #fdfcf7; 
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Títulos */
+
 h1, h2 {
     text-align: center;
     color: #333;
     margin-bottom: 25px;
 }
 
-/* Inputs y selects */
+
 .form-control {
     border-radius: 8px;
     border: 1px solid #ccc;
@@ -26,19 +27,19 @@ h1, h2 {
 }
 
 .form-control:focus {
-    border-color: #6c63ff; /* color violeta suave */
+    border-color: #6c63ff; 
     box-shadow: 0 0 5px rgba(108,99,255,0.3);
     outline: none;
 }
 
-/* Labels */
+
 .form-label {
     font-weight: 600;
     margin-bottom: 5px;
     color: #555;
 }
 
-/* Botones */
+
 .btn {
     border-radius: 8px;
     padding: 10px 20px;
@@ -65,7 +66,7 @@ h1, h2 {
     background-color: #ccc;
 }
 
-/* Tabla */
+
 .table {
     margin-top: 20px;
     border-radius: 12px;

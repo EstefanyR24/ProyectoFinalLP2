@@ -38,7 +38,7 @@ public class UsuarioController {
 
     @GetMapping("/create")
     public String create(Model model) {
-        model.addAttribute("cargos", cargoService.findAll()); // <-- agrega esto
+        model.addAttribute("cargos", cargoService.findAll()); 
         return "usuarios/create";
     }
 
@@ -54,7 +54,7 @@ public class UsuarioController {
         Optional<Usuario> optional = usuarioService.get(id);
         if (optional.isPresent()) {
             model.addAttribute("usuario", optional.get());
-            model.addAttribute("cargos", cargoService.findAll()); // 👈 importante
+            model.addAttribute("cargos", cargoService.findAll()); 
             return "usuarios/edit";
         }
         return "redirect:/usuarios";
