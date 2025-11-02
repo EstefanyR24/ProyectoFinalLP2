@@ -1,86 +1,131 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Crear Pedido</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link th:href="@{/css/Index.css}" rel="stylesheet" />
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navegations">
-        <div class="navitems" th:include="home/navigations.html::header"></div>
+      <div class="navitems" th:include="home/navigations.html::header"></div>
     </nav>
 
     <div class="container mt-4">
-        <h1 class="mb-4">Crear Nuevo Pedido</h1>
+      <h1 class="mb-4">Crear Nuevo Pedido</h1>
 
-        <!-- Formulario de creación -->
-        <form th:action="@{/pedidos/save}" th:object="${pedido}" method="post">
+      <form
+        class="formularioprod"
+        th:action="@{/pedidos/save}"
+        th:object="${pedido}"
+        method="post"
+      >
+        <div class="mb-3">
+          <label class="form-label fw-bold">Productos</label>
 
-            <!-- Selección de productos -->
-            <div class="mb-3">
-                <label for="productos" class="form-label">Productos</label>
-                <select multiple class="form-control" id="productos" name="productos" required>
-                    <option th:each="producto : ${productos}" 
-                            th:value="${producto.id_Producto}" 
-                            th:text="${producto.nombre_Producto}">
-                    </option>
-                </select>
-                <small class="text-muted">Mantén presionada la tecla CTRL (o CMD) para seleccionar varios productos.</small>
+          <div class="listaprod row row-cols-1 row-cols-md-1 g-1">
+            <div class="col" th:each="producto : ${productos}">
+              <label
+                class="cursor-pointer form-check border rounded p-2 d-flex justify-content-between align-items-center"
+              >
+                <div class="d-flex align-items-center">
+                  <input
+                    class="form-check-input me-2"
+                    type="checkbox"
+                    name="productos"
+                    th:value="${producto.id_Producto}"
+                    id="producto__${producto.id_Producto}"
+                  />
+                  <span
+                    class="fw-semibold"
+                    th:text="${producto.nombre_Producto}"
+                  ></span>
+                </div>
+                <span
+                  class="badge bg-warning text-dark p-1"
+                  th:text="'Stock: ' + ${producto.stock_Producto}"
+                ></span>
+              </label>
             </div>
+          </div>
 
-            <!-- Cliente -->
-            <div class="mb-3">
-                <label for="cliente" class="form-label">Cliente</label>
-                <select class="form-control" id="cliente" name="cliente" required>
-                    <option th:each="cliente : ${clientes}" 
-                            th:value="${cliente.id_Cliente}" 
-                            th:text="${cliente.nombre_Cliente}">
-                    </option>
-                </select>
-            </div>
+          <small class="text-muted d-block mt-2"
+            >Selecciona uno o varios productos.</small
+          >
+        </div>
 
-            <!-- Usuario -->
-            <div class="mb-3">
-                <label for="usuario" class="form-label">Usuario</label>
-                <select class="form-control" id="usuario" name="usuario" required>
-                    <option th:each="usuario : ${usuarios}" 
-                            th:value="${usuario.id_Usuario}" 
-                            th:text="${usuario.nombre_Usuario}">
-                    </option>
-                </select>
-            </div>
+        <div>
+          
+          <div class="mb-3">
+            <label for="cliente" class="form-label">Cliente</label>
+            <select class="form-select" id="cliente" name="cliente" required>
+              <option
+                th:each="cliente : ${clientes}"
+                th:value="${cliente.id_Cliente}"
+                th:text="${cliente.nombre_Cliente }"
+              ></option>
+            </select>
+          </div>
 
-            <!-- Cotización -->
-            <div class="mb-3">
-                <label for="cotizacion" class="form-label">Cotización</label>
-                <select class="form-control" id="cotizacion" name="cotizacion" required>
-                    <option th:each="cotizacion : ${cotizaciones}" 
-                            th:value="${cotizacion.id_Cotizacion}" 
-                            th:text="${cotizacion.num_Cotizacion}">
-                    </option>
-                </select>
-            </div>
+          
+          <div class="mb-3">
+            <label for="usuario" class="form-label">Usuario</label>
+            <select class="form-select" id="usuario" name="usuario" required>
+              <option
+                th:each="usuario : ${usuarios}"
+                th:value="${usuario.id_Usuario}"
+                th:text="${usuario.nombre_Usuario}"
+              ></option>
+            </select>
+          </div>
 
-            <!-- Fecha -->
-            <div class="mb-3">
-                <label for="fecha_Pedido" class="form-label">Fecha del Pedido</label>
-                <input type="date" class="form-control" id="fecha_Pedido" 
-                       th:field="*{fecha_Pedido}" required>
-            </div>
+          <!-- Cotización -->
+          <div class="mb-3">
+            <label for="cotizacion" class="form-label">Cotización</label>
+            <select
+              class="form-select"
+              id="cotizacion"
+              name="cotizacion"
+              required
+            >
+              <option
+                th:each="cotizacion : ${cotizaciones}"
+                th:value="${cotizacion.id_Cotizacion}"
+                th:text="${cotizacion.num_Cotizacion}"
+              ></option>
+            </select>
+          </div>
 
-            <!-- Botones -->
-            <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-success">
-                    <i class="bi bi-save"></i> Guardar
-                </button>
-                <a th:href="@{/pedidos}" class="btn btn-secondary">
-                    <i class="bi bi-arrow-left"></i> Volver
-                </a>
-            </div>
-        </form>
+          <!-- Fecha -->
+          <div class="mb-3">
+            <label for="fecha_Pedido" class="form-label"
+              >Fecha del Pedido</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="fecha_Pedido"
+              th:field="*{fecha_Pedido}"
+              required
+            />
+          </div>
+
+          <!-- Botones -->
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-success">
+              <i class="bi bi-save"></i> Guardar
+            </button>
+            <a th:href="@{/pedidos}" class="btn btn-secondary">
+              <i class="bi bi-arrow-left"></i> Volver
+            </a>
+          </div>
+        </div>
+      </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

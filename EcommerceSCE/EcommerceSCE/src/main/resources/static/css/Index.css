@@ -114,7 +114,7 @@ height: 220px;
 }
 
 .productos{
-	
+	  cursor: pointer;
 	  background-color: white;
 	  border: 1px solid rgba(0, 0, 0, 0.1); /* borde negro muy suave */
 	  box-shadow: 0 3px 5px 2px rgba(0,0,0,0.3);
@@ -133,6 +133,21 @@ height: 220px;
   box-shadow: 0 10px 20px rgba(55, 54, 54, 0.5);
 }
 
+.formularioprod {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.formularioprod > * {
+  flex: 1; /* cada hijo toma el mismo espacio disponible */
+}
+
+
+
+.listaprod{
+  min-height: 400px;
+}
 .sub_titulo{
 	padding-top:10px;
 	font-weight: bold;
