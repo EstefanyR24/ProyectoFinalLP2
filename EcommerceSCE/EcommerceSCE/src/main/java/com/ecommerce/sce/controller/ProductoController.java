@@ -26,14 +26,13 @@ public class ProductoController {
     @Autowired
     private ProveedorService proveedorService;
 
-    // Mostrar todos los productos
     @GetMapping("")
     public String show(Model model) {
         model.addAttribute("productos", productoService.findAll());
         return "productos/show";
     }
 
-    // Formulario para crear
+   
     @GetMapping("/create")
     public String create(Model model) {
         List<Proveedor> proveedores = proveedorService.findAll();
@@ -62,12 +61,12 @@ public class ProductoController {
             List<Proveedor> proveedores = proveedorService.findAll();
             model.addAttribute("proveedores", proveedores);
             model.addAttribute("producto", optional.get());
-            return "productos/edit"; // Nota: carpeta plural para mantener consistencia
+            return "productos/edit";
         }
         return "redirect:/productos";
     }
 
-    // Actualizar producto
+  
     @PostMapping("/update")
     public String update(@ModelAttribute Producto producto,
                          @RequestParam("id_Proveedor") Integer idProveedor) {
@@ -83,7 +82,7 @@ public class ProductoController {
     }
 
 
-    // Eliminar producto
+  
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         productoService.delete(id);

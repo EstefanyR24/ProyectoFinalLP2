@@ -33,7 +33,6 @@ public class ProveedorController {
 
     @GetMapping("/create")
     public String create(Model model) {
-        model.addAttribute("proveedor", new Proveedor()); // Objeto vacío para el formulario
         return "proveedor/create";
     }
     

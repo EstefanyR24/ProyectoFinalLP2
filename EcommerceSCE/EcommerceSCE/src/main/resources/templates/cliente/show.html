@@ -37,7 +37,7 @@
                 <th>RUC</th>
                 <th>Teléfono</th>
                 <th>Editar</th>
-               <!--  <th>Eliminar</th> -->
+              
             </tr>
         </thead>
         <tbody>
@@ -47,7 +47,7 @@
                 <td th:text="${cliente.ruc_Cliente}"></td>
                 <td th:text="${cliente.telefono_Cliente}"></td> 
                 <td><a class="btn btn-warning" th:href="@{/clientes/edit/{id}(id=${cliente.id_Cliente})}">Editar</a></td>
-               <!-- <td><a class="btn btn-danger" th:href="@{/clientes/delete/{id}(id=${cliente.id_Cliente})}">Eliminar</a></td>-->
+           
             </tr>
         </tbody>
     </table>
