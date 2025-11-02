@@ -28,12 +28,17 @@ public class ProveedorServiceImpl implements ProveedorService {
 		return proveedorRepository.findById(id);
 	}
 
-	@Override
-	public void update(Proveedor proveedor) {
-		// TODO Auto-generated method stub
-		proveedorRepository.save(proveedor);
-	}
-
+	 @Override
+	    public void update(Proveedor proveedor) {
+	        // Busca primero si existe
+	        Optional<Proveedor> optional = proveedorRepository.findById(proveedor.getId_Proveedor());
+	        if(optional.isPresent()) {
+	            Proveedor p = optional.get();
+	            p.setNombre_Proveedor(proveedor.getNombre_Proveedor());
+	            p.setRuc_Proveedor(proveedor.getRuc_Proveedor());
+	            proveedorRepository.save(p);
+	        }
+	    }
 	
 	@Override
 	

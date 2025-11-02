@@ -1,68 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Actualizar Producto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/Index.css}" rel="stylesheet" />
 </head>
 <body>
+    <nav class="navegations">
+        <div class="navitems" th:include="home/navigations.html::header"></div>
+    </nav>
 
-	    <!-- Page Content -->
-    <div class="container">
+    <div class="container mt-4">
+        <h1>Actualizar Producto</h1>
 
+        <form th:action="@{/productos/update}" method="post">
+            <!-- Id oculto del producto -->
+            <input type="hidden" name="id_Producto" th:value="${producto.id_Producto}" />
 
+            <!-- Nombre del Producto -->
+            <div class="mb-3">
+                <label for="nombre_Producto" class="form-label">Nombre del Producto</label>
+                <input type="text" class="form-control" id="nombre_Producto" name="nombre_Producto"
+                       th:value="${producto.nombre_Producto}" required>
+            </div>
 
-      <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">
-        Spring eCommerce <small>Producto</small>
-      </h1>
+            <!-- Precio del Producto -->
+            <div class="mb-3">
+                <label for="precio_Producto" class="form-label">Precio</label>
+                <input type="number" step="0.01" class="form-control" id="precio_Producto" name="precio_Producto"
+                       th:value="${producto.precio_Producto}" required>
+            </div>
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active">Actualizar Producto</li>
-      </ol>
+            <!-- Stock del Producto -->
+            <div class="mb-3">
+                <label for="stock_Producto" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock_Producto" name="stock_Producto"
+                       th:value="${producto.stock_Producto}" required>
+            </div>
 
-      <h2>Actualizar Producto</h2>
-      <form class="form-horizontal" th:action="@{/productos/update}" method="post"  enctype="multipart/form-data">
-        <input type="hidden" name="id" th:value="${productos.id}">    
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="nombre_Producto">Nombre de Producto:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="nombre_Producto" name="nombre" placeholder="Ingrese el nombre del producto" required autocomplete="off" th:value="${productos.nombre_Producto}">
-            <div id="prueba"></div>  
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="precio_Producto">Precio:</label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="precio_Producto" name="precio" placeholder="Ingrese el precio del producto" required autocomplete="off" th:value="${productos.precio_Producto}">
-            <div id="prueba"></div>  
-          </div>
-        </div>
+            <!-- Proveedor -->
+            <div class="mb-3">
+                <label for="proveedor" class="form-label">Proveedor</label>
+                <select class="form-select" id="proveedor" name="id_Proveedor" required>
+                    <option th:each="prov : ${proveedores}"
+                            th:value="${prov.id_Proveedor}"
+                            th:text="${prov.nombre_Proveedor}"
+                            th:selected="${prov.id_Proveedor == producto.proveedor.id_Proveedor}">
+                    </option>
+                </select>
+            </div>
 
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="stock_Producto">Stock:</label>
-          <div class="col-sm-10">          
-            <input type="number" class="form-control" id="stock_Producto" name="stock" placeholder="Ingrese el stock del producto" th:value="${productos.stock_Producto}" required autocomplete="off">
-          </div>
-        </div>
-        
-          <div class="form-group">
-          <label class="control-label col-sm-2" for=proveedor>Proveedor:</label>
-          <div class="col-sm-10">          
-            <input type="number" class="form-control" id="proveedor" name="stock" placeholder="Ingrese el nombre del proveedor" th:value="${productos.proveedor}" required autocomplete="off">
-          </div>
-        </div>
-
-        
-        <div class="row">
-          <div class="col-sm-2">
-            <button type="submit" class="btn btn-success"> Guardar</button>
-          </div>             
-        </div>
-
-      </form>
-
+            <!-- Botones -->
+            <div class="mt-3">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <a th:href="@{/productos}" class="btn btn-secondary">Volver</a>
+            </div>
+        </form>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

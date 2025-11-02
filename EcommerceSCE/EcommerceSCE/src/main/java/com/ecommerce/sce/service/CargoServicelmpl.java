@@ -28,17 +28,22 @@ public class CargoServicelmpl implements CargoService {
 		return cargoRepository.findById(id);
 	}
 
-	@Override
-	public void update(Cargo cargo) {
-		// TODO Auto-generated method stub
-		cargoRepository.save(cargo);
-	}
+    @Override
+    public void update(Cargo cargo) {
+        // Buscar el cargo existente
+        Optional<Cargo> existingCargo = cargoRepository.findById(cargo.getId_Cargo());
+        if(existingCargo.isPresent()) {
+            Cargo c = existingCargo.get();
+            // Actualizar los campos
+            c.setNombre_Cargo(cargo.getNombre_Cargo());
+            // Guardar el cambio
+            cargoRepository.save(c);
+        } else {
+            // Opcional: lanzar excepción o guardar como nuevo
+            throw new RuntimeException("Cargo no encontrado con id: " + cargo.getId_Cargo());
+        }
+    }
 
-	@Override
-	public List<Cargo> findAll() {
-		// TODO Auto-generated method stub
-		return cargoRepository.findAll();
-	}
 
 	@Override
 	public void delete(Integer id) {
@@ -47,5 +52,11 @@ public class CargoServicelmpl implements CargoService {
 	}
 	
 
+
+	@Override
+	public List<Cargo> findAll() {
+		// TODO Auto-generated method stub
+		return cargoRepository.findAll();
+	}
 
 }

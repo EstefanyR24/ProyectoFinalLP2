@@ -32,15 +32,17 @@ public class ProveedorController {
     }
 
     @GetMapping("/create")
-    public String create() {
+    public String create(Model model) {
+        model.addAttribute("proveedor", new Proveedor()); // Objeto vacío para el formulario
         return "proveedor/create";
     }
+    
 
     @PostMapping("/save")
     public String save(Proveedor proveedor) {
         LOGGER.info("Proveedor a guardar: {}", proveedor);
         proveedorService.save(proveedor);
-        return "redirect:/proveedor";
+        return "redirect:/proveedores";
     }
 
     @GetMapping("/edit/{id}")
@@ -51,19 +53,19 @@ public class ProveedorController {
             LOGGER.info("Proveedor buscado: {}", optional.get());
             return "proveedor/edit";
         }
-        return "redirect:/proveedor";
+        return "redirect:/proveedores";
     }
 
     @PostMapping("/update")
     public String update(Proveedor proveedor) {
         proveedorService.update(proveedor);
-        return "redirect:/proveedor";
+        return "redirect:/proveedores";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         proveedorService.delete(id);
-        return "redirect:/proveedor";
+        return "redirect:/proveedores";
     }	
 	
 }

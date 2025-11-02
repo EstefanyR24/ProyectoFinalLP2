@@ -1,16 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Crear Producto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link th:href="@{/css/Index.css}" rel="stylesheet" />
-
 </head>
 <body>
-    <nav class="navegations">
-      <div class="navitems" th:include="home/navigations.html::header"></div>
-    
-    </nav>
+<nav class="navegations">
+    <div class="navitems" th:include="home/navigations.html::header"></div>
+</nav>
+
+<div class="container mt-4">
+    <h1>Crear Nuevo Producto</h1>
+    <form th:action="@{/productos/save}" th:object="${producto}" method="post">
+        <div class="mb-3">
+            <label for="nombre_Producto" class="form-label">Nombre del Producto</label>
+            <input type="text" class="form-control" id="nombre_Producto" th:field="*{nombre_Producto}" required>
+        </div>
+        <div class="mb-3">
+            <label for="precio_Producto" class="form-label">Precio</label>
+            <input type="number" step="0.01" class="form-control" id="precio_Producto" th:field="*{precio_Producto}" required>
+        </div>
+        <div class="mb-3">
+            <label for="stock_Producto" class="form-label">Stock</label>
+            <input type="number" class="form-control" id="stock_Producto" th:field="*{stock_Producto}" required>
+        </div>
+       <div class="mb-3">
+    <label for="proveedor" class="form-label">Proveedor</label>
+    <select class="form-select" id="proveedor" name="id_Proveedor" required>
+        <option th:each="prov : ${proveedores}" th:value="${prov.id_Proveedor}" th:text="${prov.nombre_Proveedor}"></option>
+    </select>
+</div>
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
+            <div class="col-md-2">
+                <a th:href="@{/productos}" class="btn btn-secondary">Volver</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

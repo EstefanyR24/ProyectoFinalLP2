@@ -40,7 +40,7 @@ public class ClienteController {
     @PostMapping("/save")
     public String save(Cliente cliente) {
         clienteService.save(cliente);
-        return "redirect:/cliente";
+        return "redirect:/clientes";
     }
 
     @GetMapping("/edit/{id}")
@@ -52,20 +52,20 @@ public class ClienteController {
             return "cliente/edit";
         } else {
             LOGGER.warn("Cliente con ID {} no encontrado", id);
-            return "redirect:/cliente";
+            return "redirect:/clientes";
         }
     }
 
     @PostMapping("/update")
     public String update(Cliente cliente) {
         clienteService.update(cliente);
-        return "redirect:/cliente";
+        return "redirect:/clientes";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         clienteService.delete(id);
-        return "redirect:/cliente";
+        return "redirect:/clientes";
     }
 	
 	

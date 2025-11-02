@@ -1,72 +1,92 @@
 package com.ecommerce.sce.controller;
 
+import java.util.List;
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import com.ecommerce.sce.service.ProductoService;
-import com.ecommerce.sce.model.Proveedor;
 import com.ecommerce.sce.model.Producto;
-import com.ecommerce.sce.controller.ProductoController;
+import com.ecommerce.sce.model.Proveedor;
+import com.ecommerce.sce.service.ProductoService;
+import com.ecommerce.sce.service.ProveedorService;
 
 @Controller
 @RequestMapping("/productos")
 public class ProductoController {
-	
-	private final Logger LOGGER = LoggerFactory.getLogger(ProductoController.class);
+
+    private final Logger LOGGER = LoggerFactory.getLogger(ProductoController.class);
 
     @Autowired
     private ProductoService productoService;
 
-    @GetMapping
+    @Autowired
+    private ProveedorService proveedorService;
+
+    // Mostrar todos los productos
+    @GetMapping("")
     public String show(Model model) {
         model.addAttribute("productos", productoService.findAll());
         return "productos/show";
     }
 
+    // Formulario para crear
     @GetMapping("/create")
-    public String create() {
+    public String create(Model model) {
+        List<Proveedor> proveedores = proveedorService.findAll();
+        model.addAttribute("proveedores", proveedores);
+        model.addAttribute("producto", new Producto());
         return "productos/create";
     }
 
     @PostMapping("/save")
-    public String save(Producto producto) {
-        LOGGER.info("Producto a guardar: {}", producto);
-        // Si deseas asociar manualmente un proveedor:
-        // Proveedor p = new Proveedor(); p.setId_Proveedor(1); producto.setProveedor(p);
-        productoService.save(producto);
-        return "redirect:/producto";
-    }
+    public String save(@RequestParam("id_Proveedor") Integer idProveedor,
+                       @ModelAttribute Producto producto) {
 
+        Proveedor proveedor = proveedorService.get(idProveedor).orElse(null);
+        if(proveedor != null){
+            producto.setProveedor(proveedor);
+        }
+
+        productoService.save(producto);
+        return "redirect:/productos";
+    }
+ // Formulario para editar
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         Optional<Producto> optional = productoService.get(id);
         if (optional.isPresent()) {
+            List<Proveedor> proveedores = proveedorService.findAll();
+            model.addAttribute("proveedores", proveedores);
             model.addAttribute("producto", optional.get());
-            LOGGER.info("Producto buscado: {}", optional.get());
-            return "productos/edit";
+            return "productos/edit"; // Nota: carpeta plural para mantener consistencia
         }
         return "redirect:/productos";
     }
 
+    // Actualizar producto
     @PostMapping("/update")
-    public String update(Producto producto) {
+    public String update(@ModelAttribute Producto producto,
+                         @RequestParam("id_Proveedor") Integer idProveedor) {
+        
+        Proveedor proveedor = proveedorService.get(idProveedor).orElse(null);
+        if (proveedor != null) {
+            producto.setProveedor(proveedor);
+        }
+
+        LOGGER.info("Producto a actualizar: {}", producto);
         productoService.update(producto);
         return "redirect:/productos";
     }
 
+
+    // Eliminar producto
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         productoService.delete(id);
         return "redirect:/productos";
     }
-	
 }

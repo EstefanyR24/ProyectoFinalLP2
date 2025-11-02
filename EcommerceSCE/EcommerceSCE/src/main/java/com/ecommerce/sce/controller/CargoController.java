@@ -52,20 +52,20 @@ public class CargoController {
             return "cargo/edit";
         } else {
             LOGGER.warn("Cargo con ID {} no encontrado", id);
-            return "redirect:/cargo";
+            return "redirect:/cargos";
         }
     }
 
     @PostMapping("/update")
     public String update(Cargo cargo) {
         cargoService.update(cargo);
-        return "redirect:/cargo";
+        return "redirect:/cargos";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         cargoService.delete(id);
-        return "redirect:/cargo";
+        return "redirect:/cargos";
     }
 	
 	

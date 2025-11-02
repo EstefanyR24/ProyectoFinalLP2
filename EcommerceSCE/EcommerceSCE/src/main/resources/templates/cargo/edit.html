@@ -22,12 +22,13 @@
       </ol>
 
       <h2>Actualizar Cargo</h2>
-      <form class="form-horizontal" th:action="@{cargos//update}" method="post"  enctype="multipart/form-data">
-        <input type="hidden" name="id" th:value="${cargos.id}">    
+      <form class="form-horizontal" th:action="@{/cargos/update}" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="id_Cargo" th:value="${cargo.id_Cargo}">    
         <div class="form-group">
           <label class="control-label col-sm-2" for="nombre_Cargo">Nombre:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="nombre_Cargo" name="nombre" placeholder="Ingrese el nombre del cargo" required autocomplete="off" th:value="${cargo.nombre_Cargo}">
+            <input type="text" class="form-control" id="nombre_Cargo" name="nombre_Cargo" placeholder="Ingrese el nombre del cargo" required autocomplete="off" th:value="${cargo.nombre_Cargo}">
             <div id="prueba"></div>  
           </div>
         </div>

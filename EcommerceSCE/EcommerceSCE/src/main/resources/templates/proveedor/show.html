@@ -1,51 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link th:href="@{css/heroic-features.css}" rel="stylesheet">
-        <link th:href="@{css/Index.css}" rel="stylesheet" />
-
+    <meta charset="UTF-8">
+    <title>Proveedores</title>
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+    <link th:href="@{/css/Index.css}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navegations">
-      <div class="navitems" th:include="home/navigations.html::header"></div>
-    
-    </nav>
-	
-<div class="container">
 
+<nav class="navegations">
+    <div class="navitems" th:include="home/navigations.html::header"></div>
+</nav>
 
-  <!-- Page Heading/Breadcrumbs -->
-  <h1 class="mt-4 mb-3">
-    Spring EcommerceSCE <small>	Proveedor</small>
-  </h1>
+<div class="container mt-4">
+    <h1 class="mb-4">
+        Spring EcommerceSCE <small>Proveedor</small>
+    </h1>
 
+    <a class="btn btn-primary mb-3" th:href="@{/proveedores/create}">Crear Proveedor</a>
 
-
-  <a class="btn btn-primary" th:href="@{/proveedores/create}" > Crear Proveedor</a>
-  <h2>Proveedor</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Nombre del Proveedor</th> 
-        <th scope="col">Ruc</th>
-         <th scope="col">Acción</th>
-        <th scope="col">Acción</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="proveedores:${proveedor}">
-        <td th:text="${proveedores.nombre_Proveedor}"></descripciontd>
-        <td th:text="${proveedores.ruc_Proveedor}"></descripciontd>
-        <td><a  class="btn btn-warning" th:href="@{proveedores/edit/{id} (id=${proveedores.id}) }">Editar</a> </td>
-        <td><a  class="btn btn-danger" th:href="@{proveedores/delete/{id} (id=${proveedores.id}) }">Eliminar</a> </td>
-      </tr>       
-    </tbody>
-  </table>
-
+    <h2>Listado de Proveedores</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre del Proveedor</th> 
+                <th>RUC</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="proveedor : ${proveedores}">
+                <td th:text="${proveedor.nombre_Proveedor}"></td>
+                <td th:text="${proveedor.ruc_Proveedor}"></td>
+                <td>
+                    <a class="btn btn-warning" th:href="@{/proveedores/edit/{id}(id=${proveedor.id_Proveedor})}">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" th:href="@{/proveedores/delete/{id}(id=${proveedor.id_Proveedor})}">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>       
+        </tbody>
+    </table>
 </div>
-	
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
